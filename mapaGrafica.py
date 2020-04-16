@@ -1,3 +1,7 @@
+""" Carlos Javier López Cruz
+javier1604@gmail.com
+Abr 2020
+"""
 import networkx as nx
 import matplotlib.pyplot as plt
 
