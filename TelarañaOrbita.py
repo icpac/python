@@ -35,6 +35,10 @@ while abs(funcion(x0)) < xdi and abs(funcion(x0)) > .00001 and itera < limiteIte
     itera += 1
 
 
+#Ejes
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+
 plt.grid(True)
 plt.legend()
 plt.show()
