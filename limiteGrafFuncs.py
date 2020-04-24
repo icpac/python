@@ -16,7 +16,7 @@ import numpy as np
 # Intervalo
 x = np.arange(0, 3, .1)
 
-# Dibuja las fuciones 
+# Dibuja las funciones 
 plt.plot(x, x**2 -x + 6, label="x^2 - x + 6")
 plt.plot(x, x-2, label="x-2")
 
