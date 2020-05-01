@@ -4,10 +4,23 @@ tlacaelel.icpac@gmail.com
 
 Gráfica de la república con algunas medidas de centralidad
 """
+
 import networkx as nx
+import matplotlib as mpl
+mpl.use('TkAgg')
 import matplotlib.pyplot as plt
 import scipy as sp
 import numpy as np
+
+
+__author__ = "Tlacaelel Icpac"
+__credits__ = ["Tlacaelel Icpac"]
+__version__ = "1.0"
+__email__ = "tlacaelel.icpac@gmail.com"
+
+
+#interactivo
+#plt.ion()
 
 #1 Baja California
 #2 Baja California Sur
