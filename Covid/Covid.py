@@ -18,13 +18,6 @@ class Covid:
         self.df = pd.read_csv(nf, encoding = "ISO-8859-1")
 
     def Estado(self, edo):
-        #https://cmdlinetips.com/2018/02/how-to-subset-pandas-dataframe-based-on-values-of-a-column/
-        """
-        print(self.df['ENTIDAD_RES'])
-        isaux = self.df['FECHA_DEF'] != "9999-99-99"
-        ndf = self.df[isaux]
-        aux = ndf.groupby('ENTIDAD_RES').count()
-        print("aux:", aux)"""
         isaux = self.df['ENTIDAD_RES'] == edo
         return self.df[isaux]
     
