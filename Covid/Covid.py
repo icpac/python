@@ -18,8 +18,7 @@ class Covid:
         self.df = pd.read_csv(nf, encoding = "ISO-8859-1")
 
     def Estado(self, edo):
-        isaux = self.df['ENTIDAD_RES'] == edo
-        return self.df[isaux]
+        return self.df[self.df['ENTIDAD_RES'] == edo]
     
     def Miq(self):
         print("Total de Registros : ", len(self.df.index))
