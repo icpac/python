@@ -20,14 +20,30 @@ class Covid:
     def Estado(self, edo):
         return self.df[self.df['ENTIDAD_RES'] == edo]
     
-    def Miq(self):
-        print("Total de Registros : ", len(self.df.index))
-        print("Total de Defunciones: ", len(self.df.FECHA_DEF.value_counts().sort_index()[:-1]))
-        # deberían salir como 65 mil
-        sm = self.df.FECHA_DEF.value_counts().sort_index()[:-1]
-        print(sm)
-        print(sm.sum())
-        print("Último:", self.df.FECHA_DEF.value_counts().sort_index()[-1])
+    def Miq(self, df, leg, txleg):
+        "Se usa la columna FECHA DEF para saber cuántos decesos hay"
+        defunciones = df.FECHA_DEF.value_counts().sort_index()
+
+        print(f"Total de Registros: {len(df.index):,}")
+        print(f"Total Fechas distintas: {len(defunciones[:-1]):,}")
+        print(f"Cuantos muertos hay: {defunciones[:-1].sum():,}")
+        print(f"Sobrevivientes: {defunciones[-1]:,}")
+        print(f"Total = defunciones + sobrevivientes: {len(df.index):,} ="
+              f" {defunciones[:-1].sum():,} + {defunciones[-1]:,}")
+
+        s_fd = pd.Series(defunciones[:-1])
+        rol_defunc = s_fd.rolling(7)
+
+        lbm = "Media, defunciones"
+        lb = "Defunciones"
+        if leg == False:
+            lb = ""
+            lbm = ""
+
+        rol_defunc.mean().plot(lw=.7, label=lbm)
+        s_fd.plot(label=lb, lw=0.5)
+        #self.ProyLineal(rol_defunc)
+        self.ProyPoly(rol_defunc, txleg)
 
     def Ingreso(self):
         s_fi = pd.Series(self.df.FECHA_INGRESO.value_counts().sort_index())
