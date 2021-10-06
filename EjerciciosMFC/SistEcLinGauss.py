@@ -61,7 +61,5 @@ if Gaus.all() != None:
     print("Solucion:\n", np.round(Sol, 3))
 
     A = np.delete(A, -1, axis=1)
-    #Sol = np.array(Sol).reshape(3, 1)
-    #print("Solucion: \n", Sol)
     print("Matriz de Coeficientes :\n", A)
     print("Comprueba la solucion: \n", np.round(np.matmul(A, Sol), 2)) 
