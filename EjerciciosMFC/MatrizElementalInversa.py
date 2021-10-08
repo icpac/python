@@ -20,6 +20,7 @@ a = np.array(
     ]
 )
 
+
 b = np.array(
     [
         [1, 0],
@@ -49,7 +50,5 @@ cinv = np.array(
         [0, 0, 1]
     ]
 )
-
-PrintMul(a, a)
-PrintMul(b, binv)
 PrintMul(c, cinv)
+
