@@ -3,7 +3,7 @@
 __autor__ = "Tlacaelel Icpac"
 __email__ = "tlacaelel.icpac@gmail.com"
 
-""" Conmutador """
+""" Diagrama de Bifurcación """
 
 import numpy as np
 import matplotlib.pyplot as plt
