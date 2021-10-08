@@ -1,12 +1,28 @@
 # -*- coding: utf-8 -*-
 
-""" Eliminación Gaussiana, matrices regulares """ 
+""" Eliminación Gaussiana, matrices regulares,
+no singulares """ 
 
 __autor__ = "Tlacaelel Icpac"
 __email__ = "tlacaelel.icpac@gmail.com"
 
 import numpy as np
 
+
+def Ceros(R, k, j, n):
+    return False
+
+def GausNonS(A):
+    n = A.shape[0]
+    print(np.argwhere(A == 0))
+    for j in range (0, n):
+        #zz = np.argwhere(A[j] == 0)
+        res = np.where(A[j] == 0)[0]
+        if Ceros(A[j], j, j, n):
+            print("A es singular")
+        if A[j,j] == 0:
+            #falta algo aquí
+            None
 
 def Gauss(A):
     n = A.shape[0]
@@ -33,7 +49,7 @@ def suma(A, x, i):
 
 def Sustitucion(A):
     n = A.shape[0]
-    x = np.zeros(n)
+    x = np.zeros(n, dtype=A.dtype)
     x[n-1] = A[n-1,n]/ A[n-1, n-1]
     
     for i in range ((n-1)-1, 0-1, -1):
@@ -42,6 +58,20 @@ def Sustitucion(A):
 
 
 
+M = np.array(
+    [
+        [1-1j, 2+0j, 0+1j],
+        [0-1j, 1+1j, -1+0j]
+    ], dtype=np.complex_
+) 
+
+M = np.array(
+    [
+        [1+1j, 0+1j, 2+2j, 0+0j],
+        [1-1j, 2+0j, 0+1j, 0+0j],
+        [3-3j, 0+1j, 3-11j, 6+0j]
+    ], dtype=np.complex_
+)
 
 M = np.array(
     [
@@ -51,15 +81,31 @@ M = np.array(
     ], dtype='f'
 )
 
-A = M.copy()
+M = np.array(
+    [
+        [1, 1, 1, 6],
+        [4, 2, 1, 4],
+        [9, 3, 1, 0]
+    ], dtype= 'f'
+)
 
-print("Matriz aumentada: \n", M)
-Gaus = Gauss(M)
-if Gaus.all() != None:
-    print("Matriz Triangular Superior: \n", np.round(Gaus, 3))
-    Sol = Sustitucion(Gaus).reshape(3, 1)
-    print("Solucion:\n", np.round(Sol, 3))
 
-    A = np.delete(A, -1, axis=1)
-    print("Matriz de Coeficientes :\n", A)
-    print("Comprueba la solucion: \n", np.round(np.matmul(A, Sol), 2)) 
+def SolcNon(M):
+    A = M.copy
+    GausNonS(M)
+
+def Otra():
+    A = M.copy()
+
+    print("Matriz aumentada: \n", M)
+    Gaus = Gauss(M)
+    if Gaus.all() != None:
+        print("Matriz Triangular Superior: \n", np.round(Gaus, 3))
+        Sol = Sustitucion(Gaus).reshape(3, 1)
+        print("Solucion:\n", np.round(Sol, 3))
+
+        A = np.delete(A, -1, axis=1)
+        print("Matriz de Coeficientes :\n", A)
+        print("Comprueba la solucion: \n", np.round(np.matmul(A, Sol), 2)) 
+
+SolcNon(M)
