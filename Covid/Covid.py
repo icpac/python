@@ -75,11 +75,11 @@ class Covid:
             
     def Otro(self):
         #Obtener una serie de los datos leidos, con la columna FECHA_DEF
-        s_fd = pd.Series(df.FECHA_DEF)
+        s_fd = pd.Series(self.df.FECHA_DEF)
 
         #Otra serie de los datos pero, contando cuántos por FECHA_DEF
-        s_fdc = pd.Series(df.FECHA_DEF.value_counts())
-        s_fdc = pd.Series(df.FECHA_DEF.value_counts().sort_index())
+        s_fdc = pd.Series(self.df.FECHA_DEF.value_counts())
+        s_fdc = pd.Series(self.df.FECHA_DEF.value_counts().sort_index())
                   #[:-1])
 
         rol_defunc = s_fdc.rolling(7)
