@@ -11,9 +11,12 @@ import datetime
 import locale
 
 class Covid:
-    def Datos(self):
+    def LeeDatos(self):
+        """ Se leen los datos """
         #Leer archivo, separado por comas
-        nf = "200901COVID19MEXICO.csv"
+        #nf = "200901COVID19MEXICO.csv"
+        nf = "D:\iCPAC\Git\python\Covid\\"
+        nf += "211005COVID19MEXICO.csv"
         #nf = "Covi.csv" 
         self.df = pd.read_csv(nf, encoding = "ISO-8859-1")
 
@@ -21,7 +24,7 @@ class Covid:
         return self.df[self.df['ENTIDAD_RES'] == edo]
     
     def Miq(self, df, leg, txleg):
-        "Se usa la columna FECHA DEF para saber cuántos decesos hay"
+        """Se usa la columna FECHA DEF para saber cuántos decesos hay"""
         defunciones = df.FECHA_DEF.value_counts().sort_index()
 
         print(f"Total de Registros: {len(df.index):,}")
@@ -75,11 +78,11 @@ class Covid:
             
     def Otro(self):
         #Obtener una serie de los datos leidos, con la columna FECHA_DEF
-        s_fd = pd.Series(df.FECHA_DEF)
+        s_fd = pd.Series(self.df.FECHA_DEF)
 
         #Otra serie de los datos pero, contando cuántos por FECHA_DEF
-        s_fdc = pd.Series(df.FECHA_DEF.value_counts())
-        s_fdc = pd.Series(df.FECHA_DEF.value_counts().sort_index())
+        s_fdc = pd.Series(self.df.FECHA_DEF.value_counts())
+        s_fdc = pd.Series(self.df.FECHA_DEF.value_counts().sort_index())
                   #[:-1])
 
         rol_defunc = s_fdc.rolling(7)
@@ -91,8 +94,23 @@ class Covid:
 
 
 covi = Covid()
-covi.Datos()
+covi.LeeDatos()
+
+dfDefSex = covi.df[["FECHA_DEF", "SEXO"]]
+print(dfDefSex)
+print(dfDefSex.dtypes)
+
+
+# Creating the Series
+sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
+  
+# Print the series
+print(sr)
+# find the value counts
+print(sr.value_counts())
+
+
 #covi.Miq()
-covi.Ingreso()
-covi.Diabetes()
-plt.show()
+#covi.Ingreso()
+#covi.Diabetes()
+#plt.show()
