@@ -12423,8 +12423,121 @@
 .venv/Lib/site-packages/imageio-2.9.0.dist-info/WHEEL
 .venv/Scripts/imageio_download_bin.exe
 .venv/Scripts/imageio_remove_bin.exe
+<<<<<<< HEAD
 .venv/Lib/site-packages/__pycache__/_pyrsistent_version.cpython-39.pyc
 .venv/Lib/site-packages/__pycache__/threadpoolctl.cpython-39.pyc
+=======
+.venv/Lib/site-packages/pip/_internal/index/__pycache__/sources.cpython-39.pyc.3020440289488
+.venv/Lib/site-packages/pip/_internal/operations/build/metadata_editable.py
+.venv/Lib/site-packages/pip/_internal/operations/build/wheel_editable.py
+.venv/Lib/site-packages/pip/_internal/utils/egg_link.py
+.venv/Lib/site-packages/pip/_vendor/distlib/t64-arm.exe
+.venv/Lib/site-packages/pip/_vendor/distlib/w64-arm.exe
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__init__.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__main__.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/android.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/api.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/macos.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/unix.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/version.py
+.venv/Lib/site-packages/pip/_vendor/platformdirs/windows.py
+.venv/Lib/site-packages/pip/_vendor/progress/colors.py
+.venv/Lib/site-packages/pip/_internal/operations/build/__pycache__/metadata_editable.cpython-39.pyc
+.venv/Lib/site-packages/pip/_internal/operations/build/__pycache__/wheel_editable.cpython-39.pyc
+.venv/Lib/site-packages/pip/_internal/utils/__pycache__/egg_link.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/__main__.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/android.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/api.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/macos.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/unix.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/version.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/platformdirs/__pycache__/windows.cpython-39.pyc
+.venv/Lib/site-packages/pip/_vendor/progress/__pycache__/colors.cpython-39.pyc
+.venv/Lib/site-packages/jupyterlab_plotly/__init__.py
+.venv/Lib/site-packages/jupyterlab_plotly/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/package.json
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.0ed2ce65b9fe8645b8fb.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.8a1dbeb81a760ccf5b53.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.35c601b1a5ceaea3b00a.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.37cd56d92ea92ec63d08.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.75a3a5bfbc5045c6f18d.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.8124caf93d5d33d4afd4.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.501604bb354dd7efe549.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.30001697c17cb586ec3b.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.b04e2f5e3b9e9f935e0f.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.d2f34ef6a762091f8465.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.e50eee2988648e4e7233.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.e938c05aa03322a03382.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.e66698d3ced1c884e2bb.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/133.fa90072794e24ddca3af.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/423.5c5d1f420114d7d75b9b.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/423.615d9b10427ba53413db.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/423.8409ad662b0daea3de31.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.07d8d9ae56ba83491686.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.07d8d9ae56ba83491686.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.8a2f95f89e9d4ef6640d.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.8a2f95f89e9d4ef6640d.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.60adcc77ec49cbd50f37.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.60adcc77ec49cbd50f37.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.97c9d6fd3284436ed825.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.97c9d6fd3284436ed825.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.648ae8f1d1447aef2787.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.648ae8f1d1447aef2787.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.682df48bde19ea546833.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.682df48bde19ea546833.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.61489d0c7ebb872fbec6.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.61489d0c7ebb872fbec6.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.a2ca696429f6c0bd6160.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.a2ca696429f6c0bd6160.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.df5d79887c2da54356d2.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/478.df5d79887c2da54356d2.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/486.52aa9063b291ec574154.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/486.52aa9063b291ec574154.js.LICENSE.txt
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.1b271af388adb2a060ca.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.2bc457530a93538b82d9.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.7c2205afcedb06d23fda.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.09d4efff1ab818a08975.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.359ea3055102f7a99e99.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.538afe9b409b37ae707c.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.771dbad929cd22a323fe.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.5807bb10b62b48533190.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.17023484aff5cb288d0d.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.a752195a0c0fbb693545.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.d58e7634cc9b278287fc.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.dd6f26e03235176d44f1.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.ec010038fbb3c3a5dedf.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/657.ff821171857db34c82f8.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/879.b55d82ff9b3516e96fb0.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.1a2cc26ef0511c457ac7.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.2d63ed876c9803bb985e.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.5db2c2d9c24eed455716.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.7b0dfd91a418a1e7eb37.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.45f4c6022dd1884d7098.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.47c704edacb30646672e.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.286c741f93acc58d3401.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.667a4f2400cb3e16288f.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.722ef6c4bed73383b578.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.1127d9a8a11e639c274b.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.1016449a4f6ce437c861.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.b2c7a6a835b3d0c95a95.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.b8c677d4b23d37f46d1d.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.d9be7a2a902ee9d2c89d.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/remoteEntry.dbafde46ecb0e3cf9a67.js
+.venv/Lib/site-packages/jupyterlab_plotly/labextension/static/style.js
+.venv/Lib/site-packages/jupyterlab_plotly/nbextension/extension.js
+.venv/Lib/site-packages/jupyterlab_plotly/nbextension/index.js
+.venv/Lib/site-packages/jupyterlab_plotly/nbextension/index.js.LICENSE.txt
+.venv/Lib/site-packages/pip-21.3.1.dist-info/entry_points.txt
+.venv/Lib/site-packages/pip-21.3.1.dist-info/INSTALLER
+.venv/Lib/site-packages/pip-21.3.1.dist-info/LICENSE.txt
+.venv/Lib/site-packages/pip-21.3.1.dist-info/METADATA
+.venv/Lib/site-packages/pip-21.3.1.dist-info/RECORD
+.venv/Lib/site-packages/pip-21.3.1.dist-info/REQUESTED
+.venv/Lib/site-packages/pip-21.3.1.dist-info/top_level.txt
+.venv/Lib/site-packages/pip-21.3.1.dist-info/WHEEL
+.venv/Lib/site-packages/__pycache__/_pyrsistent_version.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/_plotly_future_/__init__.py
 .venv/Lib/site-packages/_plotly_future_/extract_chart_studio.py
 .venv/Lib/site-packages/_plotly_future_/orca_defaults.py
@@ -12445,6 +12558,7 @@
 .venv/Lib/site-packages/_plotly_future_/__pycache__/trace_uids.cpython-39.pyc
 .venv/Lib/site-packages/_plotly_future_/__pycache__/v4_subplots.cpython-39.pyc
 .venv/Lib/site-packages/_plotly_future_/__pycache__/v4.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/_plotly_utils/__init__.py
 .venv/Lib/site-packages/_plotly_utils/basevalidators.py
 .venv/Lib/site-packages/_plotly_utils/data_utils.py
@@ -12483,6 +12597,8 @@
 .venv/Lib/site-packages/_plotly_utils/colors/__pycache__/plotlyjs.cpython-39.pyc
 .venv/Lib/site-packages/_plotly_utils/colors/__pycache__/qualitative.cpython-39.pyc
 .venv/Lib/site-packages/_plotly_utils/colors/__pycache__/sequential.cpython-39.pyc
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/attr/__init__.py
 .venv/Lib/site-packages/attr/__init__.pyi
 .venv/Lib/site-packages/attr/_cmp.py
@@ -12518,6 +12634,7 @@
 .venv/Lib/site-packages/attr/__pycache__/filters.cpython-39.pyc
 .venv/Lib/site-packages/attr/__pycache__/setters.cpython-39.pyc
 .venv/Lib/site-packages/attr/__pycache__/validators.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/attrs-21.2.0.dist-info/AUTHORS.rst
 .venv/Lib/site-packages/attrs-21.2.0.dist-info/INSTALLER
 .venv/Lib/site-packages/attrs-21.2.0.dist-info/LICENSE
@@ -12547,6 +12664,67 @@
 .venv/Lib/site-packages/ipython-7.29.0.dist-info/RECORD
 .venv/Lib/site-packages/ipython-7.29.0.dist-info/top_level.txt
 .venv/Lib/site-packages/ipython-7.29.0.dist-info/WHEEL
+=======
+.venv/Lib/site-packages/jsonschema/__init__.py
+.venv/Lib/site-packages/jsonschema/__main__.py
+.venv/Lib/site-packages/jsonschema/_format.py
+.venv/Lib/site-packages/jsonschema/_legacy_validators.py
+.venv/Lib/site-packages/jsonschema/_reflect.py
+.venv/Lib/site-packages/jsonschema/_types.py
+.venv/Lib/site-packages/jsonschema/_utils.py
+.venv/Lib/site-packages/jsonschema/_validators.py
+.venv/Lib/site-packages/jsonschema/cli.py
+.venv/Lib/site-packages/jsonschema/exceptions.py
+.venv/Lib/site-packages/jsonschema/validators.py
+.venv/Lib/site-packages/jsonschema/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/__main__.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_format.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_legacy_validators.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_reflect.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_types.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_utils.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/_validators.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/cli.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/exceptions.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/__pycache__/validators.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/benchmarks/__init__.py
+.venv/Lib/site-packages/jsonschema/benchmarks/issue232.py
+.venv/Lib/site-packages/jsonschema/benchmarks/json_schema_test_suite.py
+.venv/Lib/site-packages/jsonschema/benchmarks/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/benchmarks/__pycache__/issue232.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/benchmarks/__pycache__/json_schema_test_suite.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/schemas/draft3.json
+.venv/Lib/site-packages/jsonschema/schemas/draft4.json
+.venv/Lib/site-packages/jsonschema/schemas/draft6.json
+.venv/Lib/site-packages/jsonschema/schemas/draft7.json
+.venv/Lib/site-packages/jsonschema/schemas/draft2019-09.json
+.venv/Lib/site-packages/jsonschema/schemas/draft2020-12.json
+.venv/Lib/site-packages/jsonschema/schemas/vocabularies.json
+.venv/Lib/site-packages/jsonschema/tests/__init__.py
+.venv/Lib/site-packages/jsonschema/tests/_helpers.py
+.venv/Lib/site-packages/jsonschema/tests/_suite.py
+.venv/Lib/site-packages/jsonschema/tests/fuzz_validate.py
+.venv/Lib/site-packages/jsonschema/tests/test_cli.py
+.venv/Lib/site-packages/jsonschema/tests/test_deprecations.py
+.venv/Lib/site-packages/jsonschema/tests/test_exceptions.py
+.venv/Lib/site-packages/jsonschema/tests/test_format.py
+.venv/Lib/site-packages/jsonschema/tests/test_jsonschema_test_suite.py
+.venv/Lib/site-packages/jsonschema/tests/test_types.py
+.venv/Lib/site-packages/jsonschema/tests/test_utils.py
+.venv/Lib/site-packages/jsonschema/tests/test_validators.py
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/_helpers.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/_suite.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/fuzz_validate.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_cli.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_deprecations.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_exceptions.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_format.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_jsonschema_test_suite.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_types.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_utils.cpython-39.pyc
+.venv/Lib/site-packages/jsonschema/tests/__pycache__/test_validators.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/joblib/__init__.py
 .venv/Lib/site-packages/joblib/_dask.py
 .venv/Lib/site-packages/joblib/_deprecated_format_stack.py
@@ -12608,11 +12786,19 @@
 .venv/Lib/site-packages/joblib/externals/loky/__init__.py
 .venv/Lib/site-packages/joblib/externals/loky/_base.py
 .venv/Lib/site-packages/joblib/externals/loky/cloudpickle_wrapper.py
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/joblib/externals/loky/initializers.py
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/joblib/externals/loky/process_executor.py
 .venv/Lib/site-packages/joblib/externals/loky/reusable_executor.py
 .venv/Lib/site-packages/joblib/externals/loky/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/joblib/externals/loky/__pycache__/_base.cpython-39.pyc
 .venv/Lib/site-packages/joblib/externals/loky/__pycache__/cloudpickle_wrapper.cpython-39.pyc
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/joblib/externals/loky/__pycache__/initializers.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/joblib/externals/loky/__pycache__/process_executor.cpython-39.pyc
 .venv/Lib/site-packages/joblib/externals/loky/__pycache__/reusable_executor.cpython-39.pyc
 .venv/Lib/site-packages/joblib/externals/loky/backend/__init__.py
@@ -12772,6 +12958,7 @@
 .venv/Lib/site-packages/joblib/test/data/joblib_0.11.0_pickle_py36_np111.pkl.xz
 .venv/Lib/site-packages/joblib/test/data/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/joblib/test/data/__pycache__/create_numpy_pickle.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/joblib-1.0.1.dist-info/INSTALLER
 .venv/Lib/site-packages/joblib-1.0.1.dist-info/LICENSE.txt
 .venv/Lib/site-packages/joblib-1.0.1.dist-info/METADATA
@@ -12925,6 +13112,8 @@
 .venv/Lib/site-packages/jupyterlab_plotly/nbextension/extension.js
 .venv/Lib/site-packages/jupyterlab_plotly/nbextension/index.js
 .venv/Lib/site-packages/jupyterlab_plotly/nbextension/index.js.LICENSE.txt
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/nbformat/__init__.py
 .venv/Lib/site-packages/nbformat/_compat.py
 .venv/Lib/site-packages/nbformat/_version.py
@@ -13083,6 +13272,7 @@
 .venv/Lib/site-packages/nbformat/v4/tests/__pycache__/test_json.cpython-39.pyc
 .venv/Lib/site-packages/nbformat/v4/tests/__pycache__/test_nbbase.cpython-39.pyc
 .venv/Lib/site-packages/nbformat/v4/tests/__pycache__/test_validate.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/COPYING.md
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/entry_points.txt
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/INSTALLER
@@ -13091,6 +13281,67 @@
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/REQUESTED
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/top_level.txt
 .venv/Lib/site-packages/nbformat-5.1.3.dist-info/WHEEL
+=======
+.venv/Lib/site-packages/__pycache__/threadpoolctl.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__init__.py
+.venv/Lib/site-packages/_plotly_utils/basevalidators.py
+.venv/Lib/site-packages/_plotly_utils/data_utils.py
+.venv/Lib/site-packages/_plotly_utils/exceptions.py
+.venv/Lib/site-packages/_plotly_utils/files.py
+.venv/Lib/site-packages/_plotly_utils/importers.py
+.venv/Lib/site-packages/_plotly_utils/optional_imports.py
+.venv/Lib/site-packages/_plotly_utils/png.py
+.venv/Lib/site-packages/_plotly_utils/utils.py
+.venv/Lib/site-packages/_plotly_utils/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/basevalidators.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/data_utils.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/exceptions.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/files.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/importers.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/optional_imports.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/png.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/__pycache__/utils.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__init__.py
+.venv/Lib/site-packages/_plotly_utils/colors/_swatches.py
+.venv/Lib/site-packages/_plotly_utils/colors/carto.py
+.venv/Lib/site-packages/_plotly_utils/colors/cmocean.py
+.venv/Lib/site-packages/_plotly_utils/colors/colorbrewer.py
+.venv/Lib/site-packages/_plotly_utils/colors/cyclical.py
+.venv/Lib/site-packages/_plotly_utils/colors/diverging.py
+.venv/Lib/site-packages/_plotly_utils/colors/plotlyjs.py
+.venv/Lib/site-packages/_plotly_utils/colors/qualitative.py
+.venv/Lib/site-packages/_plotly_utils/colors/sequential.py
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/_swatches.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/carto.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/cmocean.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/colorbrewer.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/cyclical.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/diverging.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/plotlyjs.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/qualitative.cpython-39.pyc
+.venv/Lib/site-packages/_plotly_utils/colors/__pycache__/sequential.cpython-39.pyc
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/AUTHORS.rst
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/INSTALLER
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/LICENSE
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/METADATA
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/RECORD
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/top_level.txt
+.venv/Lib/site-packages/attrs-21.2.0.dist-info/WHEEL
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/INSTALLER
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/LICENSE.txt
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/METADATA
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/RECORD
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/top_level.txt
+.venv/Lib/site-packages/joblib-1.1.0.dist-info/WHEEL
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/COPYING
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/entry_points.txt
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/INSTALLER
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/METADATA
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/RECORD
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/top_level.txt
+.venv/Lib/site-packages/jsonschema-4.2.1.dist-info/WHEEL
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/pandas/__init__.py
 .venv/Lib/site-packages/pandas/_typing.py
 .venv/Lib/site-packages/pandas/_version.py
@@ -15810,6 +16061,7 @@
 .venv/Lib/site-packages/pandas/util/__pycache__/testing.cpython-39.pyc
 .venv/Lib/site-packages/pandas/util/version/__init__.py
 .venv/Lib/site-packages/pandas/util/version/__pycache__/__init__.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/entry_points.txt
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/INSTALLER
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/LICENSE
@@ -15818,6 +16070,16 @@
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/REQUESTED
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/top_level.txt
 .venv/Lib/site-packages/pandas-1.3.3.dist-info/WHEEL
+=======
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/entry_points.txt
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/INSTALLER
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/LICENSE
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/METADATA
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/RECORD
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/REQUESTED
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/top_level.txt
+.venv/Lib/site-packages/pandas-1.3.4.dist-info/WHEEL
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/plotly/__init__.py
 .venv/Lib/site-packages/plotly/_version.py
 .venv/Lib/site-packages/plotly/_widget_version.py
@@ -25798,6 +26060,7 @@
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_showtickprefix.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_showticksuffix.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tick0.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickangle.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickcolor.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickfont.cpython-39.pyc
@@ -25808,6 +26071,9 @@
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickmode.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickprefix.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticks.cpython-39.pyc
+=======
+.venv/Lib/site-packages/_pyrsistent_version.py
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_dtick.py
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_exponentformat.py
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_minexponent.py
@@ -25836,6 +26102,19 @@
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_tickvalssrc.py
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_tickwidth.py
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/_visible.py
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickangle.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickcolor.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickfont.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickformat.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickformatstopdefaults.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickformatstops.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticklen.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickmode.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_tickprefix.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticks.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticksuffix.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticktext.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/indicator/gauge/axis/__pycache__/_ticktextsrc.cpython-39.pyc
@@ -35778,6 +36057,7 @@
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/__pycache__/_symbol.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/__pycache__/_symbolsrc.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__init__.py
+<<<<<<< HEAD
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_bgcolor.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_bordercolor.cpython-39.pyc
@@ -35800,6 +36080,16 @@
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_tick0.cpython-39.pyc
 .venv/etc/jupyter/nbconfig/notebook.d/jupyterlab-plotly.json
 .venv/Lib/site-packages/_pyrsistent_version.py
+=======
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/INSTALLER
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/LICENSE.txt
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/METADATA
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/RECORD
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/REQUESTED
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/top_level.txt
+.venv/Lib/site-packages/plotly-5.4.0.dist-info/WHEEL
+.venv/etc/jupyter/nbconfig/notebook.d/jupyterlab-plotly.json
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/pvectorc.cp39-win_amd64.pyd
 .venv/Lib/site-packages/threadpoolctl.py
 .venv/Lib/site-packages/plotly/version.py
@@ -35848,6 +36138,29 @@
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/_y.py
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/_yanchor.py
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/_ypad.py
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/__init__.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_bgcolor.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_bordercolor.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_borderwidth.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_dtick.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_exponentformat.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_len.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_lenmode.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_minexponent.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_nticks.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_outlinecolor.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_outlinewidth.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_separatethousands.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_showexponent.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_showticklabels.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_showtickprefix.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_showticksuffix.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_thickness.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_thicknessmode.cpython-39.pyc
+.venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_tick0.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_tickangle.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_tickcolor.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/scatterternary/marker/colorbar/__pycache__/_tickfont.cpython-39.pyc
@@ -39117,6 +39430,7 @@
 .venv/Lib/site-packages/plotly/validators/waterfall/totals/marker/line/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/waterfall/totals/marker/line/__pycache__/_color.cpython-39.pyc
 .venv/Lib/site-packages/plotly/validators/waterfall/totals/marker/line/__pycache__/_width.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/INSTALLER
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/LICENSE.txt
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/METADATA
@@ -39124,10 +39438,13 @@
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/REQUESTED
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/top_level.txt
 .venv/Lib/site-packages/plotly-5.4.0.dist-info/WHEEL
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/plotlywidget/__init__.py
 .venv/Lib/site-packages/plotlywidget/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/plotlywidget/static/extension.js
 .venv/Lib/site-packages/plotlywidget/static/index.js
+<<<<<<< HEAD
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/AUTHORS.rst
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/INSTALLER
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/LICENSE
@@ -39135,6 +39452,8 @@
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/RECORD
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/top_level.txt
 .venv/Lib/site-packages/prompt_toolkit-3.0.22.dist-info/WHEEL
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/pyrsistent/__init__.py
 .venv/Lib/site-packages/pyrsistent/__init__.pyi
 .venv/Lib/site-packages/pyrsistent/_checked_types.py
@@ -39795,6 +40114,7 @@
 .venv/Lib/site-packages/pytz-2021.3.dist-info/top_level.txt
 .venv/Lib/site-packages/pytz-2021.3.dist-info/WHEEL
 .venv/Lib/site-packages/pytz-2021.3.dist-info/zip-safe
+<<<<<<< HEAD
 .venv/Lib/site-packages/pywin32-302.dist-info/INSTALLER
 .venv/Lib/site-packages/pywin32-302.dist-info/METADATA
 .venv/Lib/site-packages/pywin32-302.dist-info/RECORD
@@ -39806,6 +40126,14 @@
 .venv/Lib/site-packages/scikit_learn-1.0.dist-info/RECORD
 .venv/Lib/site-packages/scikit_learn-1.0.dist-info/top_level.txt
 .venv/Lib/site-packages/scikit_learn-1.0.dist-info/WHEEL
+=======
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/COPYING
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/INSTALLER
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/METADATA
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/RECORD
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/top_level.txt
+.venv/Lib/site-packages/scikit_learn-1.0.1.dist-info/WHEEL
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/scipy/__config__.py
 .venv/Lib/site-packages/scipy/__init__.py
 .venv/Lib/site-packages/scipy/_distributor_init.py
@@ -39821,6 +40149,7 @@
 .venv/Lib/site-packages/scipy/setup.py
 .venv/Lib/site-packages/scipy/special.pxd
 .venv/Lib/site-packages/scipy/version.py
+<<<<<<< HEAD
 .venv/Lib/site-packages/scipy/.libs/lib_arpack-.OUTLRC34XR23CPDVNJC4LNEGP6P7X7RZ.gfortran-win_amd64.dll
 .venv/Lib/site-packages/scipy/.libs/lib_blas_su.YRKGGVTYTJAYNBJNOGROZCFCCMKD2AB4.gfortran-win_amd64.dll
 .venv/Lib/site-packages/scipy/.libs/lib_dop-f2p.3HWIZKD75YUXVW7GYVDBE4FCDUO4NUKG.gfortran-win_amd64.dll
@@ -39849,6 +40178,36 @@
 .venv/Lib/site-packages/scipy/.libs/libvode-f2p.5S5OT43YAB3RWB4DIZE6APB5L264W6M7.gfortran-win_amd64.dll
 .venv/Lib/site-packages/scipy/.libs/libwrap_dum.JPBLOQR3B5CQPVSMGPNO7DONCQDBALXS.gfortran-win_amd64.dll
 .venv/Lib/site-packages/scipy/.libs/libwrap_dum.OFSKFOUYYO563J6M6E5RWKHMPNW3HB2V.gfortran-win_amd64.dll
+=======
+.venv/Lib/site-packages/scipy/.libs/lib_arpack-.UQOM4H57QWHTKTC74NK25X3SVVHMCSB6.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/lib_blas_su.LAORB6DEW4KAMZVE6UWALY24TII2NV4Z.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/lib_dop-f2p.W23YE54JWB5C645LT3VAOCMXRFBMOXZ5.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/lib_test_fo.BMG7XNVQO3Y6HRRDJ5ONJJ54IWAYGMM4.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libansari.54HGNEJBQIYZX5TZPCQGLNVIPFU6NWEX.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libbanded5x.NR5T23WM4T4BC4MD5ZIVLEMQZWYGCSVA.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libbispeu.HPSBTY5F6WJ6KJ2NXCAHI76UA2TMTBUN.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libblkdta00.MQMKS6P6HGN7ZBNHUFJB25AYSS6AYTPE.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libchkder.CIYBJUMHB77HZDWZ7O7OQB7IFLU42V62.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libcobyla2.RFDNNLTZGQ6OW2QDSG56I46SW3GSJA3J.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libd_odr.DQT24Q3SN2GHHXZNEHOMFLPZI33MW4ZX.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdcsrch.TWU2WQ2D2VRC5ZBASJTN75WEVOQEH4AA.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdet.VAWJV4TYAMG7LS2DP2ENB4PJW5XHRL2R.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdfft.L4M3MHSB7JHSE4HFP7N2DK4PBVT4CSEF.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdfitpack.CJRYIVOD4FGA5M4CI4OXI4JDEEUOILKW.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdgamln.FBODOHISZ5U5OH33OHIVGHKWP62AAR23.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libdqag.O2LJMJSEOM3AC3OFYKM2JU4QAZQIDD5A.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libgetbreak.SNRZYVL37NGU67GTKCBVAPOBLQDIRW2K.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/liblbfgsb.BD7QM2OO2Y5QMVON3WUBHEGIOC4XFMKS.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/liblsoda-f2.3IFIYJBF47BO62AWF4SIBI5MHSXT7V5X.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libmvndst.47HLFPFBW7DZEYQRAPZVHSZHKIQDL4BZ.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libnnls.O7YW55GFEWHHLJHC7HW56M4N2SDMEE6J.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libopenblas.XWYDX2IKJW2NMTWSFYNGFUWKQU3LYTCZ.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libslsqp_op.RZ4TV2HJX5AEA5VT2ZSATTL3ELYSVEN7.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libspecfun.PSHBVSPF6FGISR7SJAEMBPSCFNGLE22A.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libvode-f2p.R4QEIEQOZZ6KS4PFXEDRTNU26WMHUUXO.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libwrap_dum.2WIKH34PTHXJWKTBS7YNVUKK3NUFJ326.gfortran-win_amd64.dll
+.venv/Lib/site-packages/scipy/.libs/libwrap_dum.3LO6QIGHSN7AUJAFEOIEM5AP46DDF4D4.gfortran-win_amd64.dll
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/scipy/.libs/msvcp140.dll
 .venv/Lib/site-packages/scipy/__pycache__/__config__.cpython-39.pyc
 .venv/Lib/site-packages/scipy/__pycache__/__init__.cpython-39.pyc
@@ -41649,6 +42008,7 @@
 .venv/Lib/site-packages/scipy/stats/tests/data/nist_anova/SmLs08.dat
 .venv/Lib/site-packages/scipy/stats/tests/data/nist_anova/SmLs09.dat
 .venv/Lib/site-packages/scipy/stats/tests/data/nist_linregress/Norris.dat
+<<<<<<< HEAD
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/INSTALLER
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/LICENSE.txt
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/LICENSES_bundled.txt
@@ -41657,6 +42017,16 @@
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/REQUESTED
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/top_level.txt
 .venv/Lib/site-packages/scipy-1.7.1.dist-info/WHEEL
+=======
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/INSTALLER
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/LICENSE.txt
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/LICENSES_bundled.txt
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/METADATA
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/RECORD
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/REQUESTED
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/top_level.txt
+.venv/Lib/site-packages/scipy-1.7.2.dist-info/WHEEL
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/sklearn/__init__.py
 .venv/Lib/site-packages/sklearn/_config.py
 .venv/Lib/site-packages/sklearn/_distributor_init.py
@@ -42170,13 +42540,19 @@
 .venv/Lib/site-packages/sklearn/externals/__init__.py
 .venv/Lib/site-packages/sklearn/externals/_arff.py
 .venv/Lib/site-packages/sklearn/externals/_lobpcg.py
+<<<<<<< HEAD
 .venv/Lib/site-packages/sklearn/externals/_pep562.py
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/sklearn/externals/_pilutil.py
 .venv/Lib/site-packages/sklearn/externals/conftest.py
 .venv/Lib/site-packages/sklearn/externals/__pycache__/__init__.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/externals/__pycache__/_arff.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/externals/__pycache__/_lobpcg.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/sklearn/externals/__pycache__/_pep562.cpython-39.pyc
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/sklearn/externals/__pycache__/_pilutil.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/externals/__pycache__/conftest.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/externals/_packaging/__init__.py
@@ -42446,6 +42822,10 @@
 .venv/Lib/site-packages/sklearn/metrics/_plot/__pycache__/precision_recall_curve.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/metrics/_plot/__pycache__/roc_curve.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/__init__.py
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_base.py
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_common_curve_display.py
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_confusion_matrix_display.py
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_det_curve_display.py
@@ -42457,6 +42837,10 @@
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_precision_recall_display.py
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/test_roc_curve_display.py
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/__pycache__/__init__.cpython-39.pyc
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/sklearn/metrics/_plot/tests/__pycache__/test_base.cpython-39.pyc
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/__pycache__/test_common_curve_display.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/__pycache__/test_confusion_matrix_display.cpython-39.pyc
 .venv/Lib/site-packages/sklearn/metrics/_plot/tests/__pycache__/test_det_curve_display.cpython-39.pyc
@@ -42931,6 +43315,7 @@
 .venv/Lib/site-packages/threadpoolctl-3.0.0.dist-info/METADATA
 .venv/Lib/site-packages/threadpoolctl-3.0.0.dist-info/RECORD
 .venv/Lib/site-packages/threadpoolctl-3.0.0.dist-info/WHEEL
+<<<<<<< HEAD
 .venv/Lib/site-packages/traitlets-5.1.1.dist-info/COPYING.md
 .venv/Lib/site-packages/traitlets-5.1.1.dist-info/INSTALLER
 .venv/Lib/site-packages/traitlets-5.1.1.dist-info/METADATA
@@ -42940,6 +43325,8 @@
 .venv/Lib/site-packages/win32/lib/win2kras.py
 .venv/Lib/site-packages/win32/lib/__pycache__/win2kras.cpython-39.pyc
 .venv/Lib/site-packages/win32com/readme.html
+=======
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
 .venv/Scripts/jsonschema.exe
 .venv/Scripts/jupyter-trust.exe
 .venv/share/jupyter/labextensions/jupyterlab-plotly/package.json
@@ -42956,3 +43343,14 @@
 .venv/share/jupyter/nbextensions/jupyterlab-plotly/extension.js
 .venv/share/jupyter/nbextensions/jupyterlab-plotly/index.js
 .venv/share/jupyter/nbextensions/jupyterlab-plotly/index.js.LICENSE.txt
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/COPYING.md
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/entry_points.txt
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/INSTALLER
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/METADATA
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/RECORD
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/REQUESTED
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/top_level.txt
+.venv/Lib/site-packages/nbformat-5.1.3.dist-info/WHEEL
+>>>>>>> 16d810bcd96979c6afe1735d5146adee34d4ac31
