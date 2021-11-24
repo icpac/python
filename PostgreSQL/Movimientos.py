@@ -3,6 +3,7 @@ from Config import config
 import pandas as pd
 import plotly.graph_objs as go
 import plotly.offline as pyo
+import sys
 
 def get_movimientosB():
     """ query data from the vendors table """
