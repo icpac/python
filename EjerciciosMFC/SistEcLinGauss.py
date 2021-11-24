@@ -24,17 +24,26 @@ def GausNonS(A):
             #falta algo aquí
             None
 
-def Gauss(A):
+def Gauss(A, Mo):
     n = A.shape[0]
 
     for j in range(0, n):
         if A[j][j] == 0: 
             print("La matriz no es Regular ")
             return None
-        else:
-            for i in range(j+1, n):
-                lij = A[i,j]/A[j,j]
-                A[i] = A[i] - lij * A[j]
+
+        """
+        max_index = abs(A).argmax(axis=0)
+        M = max_index[j]
+        if M > j:
+            A[[M, j]] = A[[j, M]]
+            Mo[[M, j]] = Mo[[j, M]]"""
+
+
+
+        for i in range(j+1, n):
+            lij = A[i,j]/A[j,j]
+            A[i] = A[i] - lij * A[j]
 
     return A
 
@@ -107,11 +116,6 @@ M = np.array([
         [2., -1., 0., 3.]
     ], dtype= 'f')
 
-M = np.array([
-        [1, 4, -3, -3], 
-        [25, 97, -35, 39],
-        [35, -22, 33, -15]
-    ], dtype= 'f')
 
 """
 M = np.array([
@@ -124,11 +128,11 @@ def SolcNon(M):
     A = M.copy
     GausNonS(M)
 
-def Otra():
+def Otra(M):
     A = M.copy()
 
     print("Matriz aumentada: \n", M)
-    Gaus = Gauss(M)
+    Gaus = Gauss(M, A)
     if Gaus.all() != None:
         #print("Matriz Triangular Superior: \n", np.round(Gaus, 3))
         print("Matriz Triangular Superior: \n", Gaus)
@@ -137,10 +141,38 @@ def Otra():
         #print("Solucion:\n", np.round(Sol, 3))
         print("Solucion:\n", Sol)
 
+        print("Matriz Intercambiada :\n", A)
         A = np.delete(A, -1, axis=1)
         print("Matriz de Coeficientes :\n", A)
-        #print("Comprueba la solucion: \n", np.round(np.matmul(A, Sol), 2)) 
-        print("Comprueba la solucion: \n", np.matmul(A, Sol)) 
+        print("Comprueba la solucion: \n", np.round(np.matmul(A, Sol), 2)) 
+        #print("Comprueba la solucion: \n", np.matmul(A, Sol)) 
+        print("\n\n")
 
 #SolcNon(M)
-Otra()
+M = np.array([
+        [.1, 2.7, 10],
+        [1.0, 0.5, -6.0]
+    ], dtype= 'f')
+
+M1 = np.array([
+        [1., -5., -1., 1.],
+        [1/6, -5/6, 1., 0.],
+        [2., -1., 0., 3.]
+    ], dtype= 'f')
+
+M2 = np.array([
+        [1, 4, -3, -3], 
+        [25, 97, -35, 39],
+        [35, -22, 33, -15]
+    ], dtype= 'f')
+
+M3 = np.array([
+        [0.2, 2, -3, 6], 
+        [5, 43, 27, 58],
+        [3, 23, -42, -87]
+    ], dtype= 'f')
+
+#Otra(M)
+#Otra(M2)
+#Otra(M3)
+Otra(M1)
