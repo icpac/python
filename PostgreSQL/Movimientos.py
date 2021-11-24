@@ -1,5 +1,8 @@
 import psycopg2
 from Config import config
+import pandas as pd
+import plotly.graph_objs as go
+import plotly.offline as pyo
 
 def get_movimientosB():
     """ query data from the vendors table """
@@ -24,8 +27,66 @@ def get_movimientosB():
             conn.close()
 
 
+
+def connect():
+    """ Connect to the PostgreSQL database server """
+    conn = None
+    try:
+        # connect to the PostgreSQL server
+        print('Connecting to the PostgreSQL database...')
+        params = config()
+        conn = psycopg2.connect(**params)
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+        sys.exit(1) 
+    print("Connection successful")
+    return conn
+
+
+def postgresql_to_dataframe(conn, select_query, column_names):
+    """
+    Tranform a SELECT query into a pandas dataframe
+    """
+    cursor = conn.cursor()
+    try:
+        cursor.execute(select_query)
+    except (Exception, psycopg2.DatabaseError) as error:
+        print("Error: %s" % error)
+        cursor.close()
+        return 1
+    
+    # Naturally we get a list of tupples
+    tupples = cursor.fetchall()
+    cursor.close()
+    
+    # We just need to turn it into a pandas dataframe
+    df = pd.DataFrame(tupples, columns=column_names)
+    return df
+
+
 if __name__ == '__main__':
-    get_movimientosB()
+    # Connect to the database
+    conn = connect()
+
+    column_names = ["Monto", "Concepto"]
+    # Execute the "SELECT *" query
+    select = '''SELECT "Monto", "ConceptoB"."Clave" FROM "MovimientoB"
+LEFT JOIN "ConceptoB"
+ON "MovimientoB"."Concepto" = "ConceptoB"."Oid";'''
+    df = postgresql_to_dataframe(conn, select, column_names)
+    print(df.head())
+
+    data = [go.Bar(x=df["Concepto"] , y=df["Monto"])]
+    layout = go.Layout(title="Movimientos por Concepto",
+                   xaxis= dict(title="Conceptos"),
+                   yaxis= dict(title="Montos"),
+                   barmode = "stack" )
+    fig = go.Figure(data=data, layout=layout)
+    fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+    pyo.plot(fig)    
+    
+    """
+    get_movimientosB()"""
 
 
 #https://towardsdatascience.com/python-and-postgresql-how-to-access-a-postgresql-database-like-a-data-scientist-b5a9c5a0ea43
