@@ -1,0 +1,119 @@
+Determinar el rango y 
+Escribir la factorización PA = LU de la matriz
+left ( matrix {
+1 #-1 #2 #1 ##
+2 #1 #-1 #0 ##
+1 #2 #-3 #-1 ##
+4 #-1 #3 #2 ##
+0 #3 #-5 #-2
+} right )
+
+
+1 -1 2 1
+2 1 -1 0
+1 2 -3 -1
+4 -1 3 2
+0 3 -5 -2
+
+Multiplicando por -2 el primer y sumando al segundo
+1 -1 2 1
+-2 2 -4 -2
+2 1 -1 0
+0 3 -5 -2
+
+Multiplicando por -1 el primer y sumando al tercero
+1 -1 2 1
+-1 1 -2 -1
+1 2 -3 -1
+0 3 -5 -2
+
+Multiplicando por -4 el primer y sumando al cuarto
+1 -1 2 1
+-4 4 -8 -4
+4 -1 3 2
+0 3 -5 -2
+
+La nueva matriz queda como:
+1 -1 2 1
+0 3 -5 -2
+0 3 -5 -2
+0 3 -5 -2
+0 3 -5 -2
+
+Multiplicando por -1 el segundo y sumando 
+al tercero, cuarto y quinto
+1 -1 2 1
+0 3 -5 -2
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+Por lo que la matriz se factoriza como 
+1 -1 2 1
+2 1 -1 0
+1 2 -3 -1
+4 -1 3 2
+0 3 -5 -2
+
+1 0 0 0 0
+2 1 0 0 0
+1 1 1 0 0
+4 1 0 1 0 
+0 1 0 0 1
+
+1 -1 2 1
+0 3 -5 -2
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+
+
+
+Otra
+0 0  0 3  1
+1 2 -3 1 -2
+2 4 -2 1 -2 
+
+Intercambiando el primer y el segundo renglón
+La matriz nos queda
+1 2 -3 1 -2
+0 0  0 3  1
+2 4 -2 1 -2 
+
+Multiplicando por -2 el primer y sumando al tercero
+1   2 -3  1 -2
+-2 -4  6 -2  4
+ 2  4 -2  1 -2 
+ 0  0  4 -1  2
+
+La matriz nos queda
+1 2 -3  1 -2
+0 0  0  3  1
+0 0  4 -1  2
+
+Intercambiando el segundo y el tercer renglón
+La matriz nos queda
+1 2 -3  1 -2
+0 0  4 -1  2
+0 0  0  3  1
+
+Entonces la factorización nos queda
+0 1 0 
+0 0 1
+1 0 0 
+
+0 0  0 3  1
+1 2 -3 1 -2
+2 4 -2 1 -2 
+ 
+=
+
+1 0 0 
+2 1 0
+0 0 1
+
+1 2 -3  1 -2
+0 0  4 -1  2
+0 0  0  3  1
+
