@@ -16,7 +16,7 @@ U = np.array([
     [0, 0, 0, 0]
 ])
 
-#print(np.matmul(L, U))
+print(np.matmul(L, U))
 
 
 P = np.array([

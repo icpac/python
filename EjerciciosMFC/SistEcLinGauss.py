@@ -14,15 +14,32 @@ def Ceros(R, k, j, n):
 
 def GausNonS(A):
     n = A.shape[0]
-    print(np.argwhere(A == 0))
+    inter = 0
     for j in range (0, n):
-        #zz = np.argwhere(A[j] == 0)
+        col = A[j:, j]
+        is_all_zero = np.all((col == 0))
+        if is_all_zero:
+            print ("A es singular")
+            return None
+        if col[0] == 0:
+            max_index = abs(col).argmax(axis=0)
+            M = max_index
+            if M > 0:
+                A[[M+j, j]] = A[[j, M+j]]
+                inter+=1
+
+        for i in range(j+1, n):
+            lij = A[i,j]/A[j,j]
+            A[i] = A[i] - lij * A[j]
+
+    return A, inter
+    """
         res = np.where(A[j] == 0)[0]
         if Ceros(A[j], j, j, n):
             print("A es singular")
         if A[j,j] == 0:
             #falta algo aquí
-            None
+            None"""
 
 def Gauss(A, Mo):
     n = A.shape[0]
@@ -175,4 +192,19 @@ M3 = np.array([
 #Otra(M)
 #Otra(M2)
 #Otra(M3)
-Otra(M1)
+#Otra(M1)
+
+A = np.array([
+[1, -2,  1,  4, -5],
+[1,  1, -2,  3, -3], 
+[2, -1, -1,  2,  2],
+[5, -1,  0,  5,  5],
+[2,  2,  0,  4, -1]
+])
+
+B = GausNonS(A)
+print(B[0])
+d = np.diag(B[0])
+print(d)
+print(np.prod(d)*(-1)**B[1])
+
