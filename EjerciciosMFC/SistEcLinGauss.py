@@ -166,3 +166,10 @@ M3 = np.array([
 #Otra(M3)
 #Otra(M1)
 
+if __name__ == "__main__":
+    A = np.array([
+        [-1, 0, -3, 5],
+        [2, 1, 1, -4],
+        [-3, 2, 0, 8]
+    ])
+    Otra(A)
