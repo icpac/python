@@ -30,6 +30,11 @@ if __name__ == "__main__":
 [5, -1,  0,  5,  5],
 [2,  2,  0,  4, -1]
 ], dtype='f')
+    A = np.array([
+        [-1, 0, -3],
+        [2, 1, 1],
+        [-3, 2, 0]
+    ])
     res = GaussNoS(A)
     Mt = res[0]
     inter = res[1]

@@ -44587,6 +44587,16 @@ EjerciciosMFC/__pycache__/GaussNoS.cpython-39.pyc
 .venv/Lib/site-packages/networkx/utils/tests/__pycache__/test_random_sequence.cpython-39.pyc
 .venv/Lib/site-packages/networkx/utils/tests/__pycache__/test_rcm.cpython-39.pyc
 .venv/Lib/site-packages/networkx/utils/tests/__pycache__/test_unionfind.cpython-39.pyc
+<<<<<<< HEAD
+=======
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/INSTALLER
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/LICENSE.txt
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/METADATA
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/RECORD
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/REQUESTED
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/top_level.txt
+.venv/Lib/site-packages/networkx-2.6.3.dist-info/WHEEL
+>>>>>>> 05b2621fd8b2d1521e80134acf1dfc45f0e1af7c
 .venv/share/doc/networkx-2.6.3/LICENSE.txt
 .venv/share/doc/networkx-2.6.3/examples/README.txt
 .venv/share/doc/networkx-2.6.3/examples/3d_drawing/mayavi2_spring.py
@@ -44696,6 +44706,7 @@ EjerciciosMFC/__pycache__/GaussNoS.cpython-39.pyc
 .venv/share/doc/networkx-2.6.3/examples/subclass/README.txt
 .venv/share/doc/networkx-2.6.3/examples/subclass/__pycache__/plot_antigraph.cpython-39.pyc
 .venv/share/doc/networkx-2.6.3/examples/subclass/__pycache__/plot_printgraph.cpython-39.pyc
+<<<<<<< HEAD
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/INSTALLER
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/LICENSE.txt
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/METADATA
@@ -44703,3 +44714,5 @@ EjerciciosMFC/__pycache__/GaussNoS.cpython-39.pyc
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/REQUESTED
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/top_level.txt
 .venv/Lib/site-packages/networkx-2.6.3.dist-info/WHEEL
+=======
+>>>>>>> 05b2621fd8b2d1521e80134acf1dfc45f0e1af7c
