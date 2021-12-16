@@ -10,31 +10,29 @@ def Traza(A, B):
     print(np.matrix.trace(AB))
 
 
-""" La matriz de prueba """
-A = np.array(
+if __name__ == "__main__":
+    """ La matriz de prueba """
+    A = np.array(
     [
         [1, 2, -1],
         [2, 1, 3],
-    ]
-)
+    ])
 
-B = np.array(
+    B = np.array(
     [
         [5, 4],
         [6, 5],
         [1, 0]
-    ]
-)
+    ])
 
-Traza(A, B)
-Traza(B, A)
+    Traza(A, B)
+    Traza(B, A)
 
-B = np.array(
+    B = np.array(
     [
         [2, 0],
         [0, 2],
-    ]
-)
+    ])
 
-Traza(B, B)
+    Traza(B, B)
 

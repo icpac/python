@@ -63,26 +63,28 @@ def Imprime(A, b):
     print(f"La solución fue: \n{x}")
 
 
-A = np.array([
+if __name__ == "__main__":
+    A = np.array([
     [1, 2, 0],
     [-1, -1, 1],
     [0, -2, 3]
-], dtype= 'f')
-b = np.array([4, -1, 6], dtype='f')
+    ], dtype= 'f')
+    b = np.array([4, -1, 6], dtype='f')
 
-A = np.array([
+    A = np.array([
     [1, -1, 0, 0],
     [-1, 2, 1, 0],
     [0, -1, 4, 1],
     [0, 0, -5, 6]
-], dtype='f')
-b = np.array([1, 0, 6, 7], dtype='f')
+    ], dtype='f')
+    b = np.array([1, 0, 6, 7], dtype='f')
 
-A = np.array([
+    A = np.array([
     [1, 2, 0, 0],
     [-1, -3, 0, 0],
     [0, -1, 4, -1],
     [0, 0, -1, -1]
-], dtype='f')
-b = np.array([0, -2, -3, 1], dtype='f')
-Imprime(A, b)
+    ], dtype='f')
+    b = np.array([0, -2, -3, 1], dtype='f')
+    Imprime(A, b)
+    

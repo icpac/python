@@ -13,13 +13,13 @@ def Resuelve(M, C):
     print(f"La solución es: \n {x}")
 
 
-
-a = np.array([
+if __name__ == "__main__":
+    a = np.array([
     [1, 1, 3, -2, -1], 
     [5, -2, 3, 7, 8],
     [-3, -1, 2, 7, 5],
     [5, 3, 1, -2, -7]])
 
-b = np.array([1, 3, 2, 3])
+    b = np.array([1, 3, 2, 3])
 
-Resuelve(a, b)
+    Resuelve(a, b)
