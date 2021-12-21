@@ -11,14 +11,14 @@ import datetime
 import locale
 
 class Covid:
-    def LeeDatos(self):
+    def LeeDatos(self, file="Covid.csv"):
         """ Se leen los datos """
         #Leer archivo, separado por comas
         #nf = "200901COVID19MEXICO.csv"
         nf = "D:\iCPAC\Git\python\Covid\\"
         nf += "211005COVID19MEXICO.csv"
         #nf = "Covi.csv" 
-        self.df = pd.read_csv(nf, encoding = "ISO-8859-1")
+        self.df = pd.read_csv(file, encoding = "ISO-8859-1")
 
     def Estado(self, edo):
         return self.df[self.df['ENTIDAD_RES'] == edo]
@@ -93,24 +93,34 @@ class Covid:
         print(s_fdc)
 
 
-covi = Covid()
-covi.LeeDatos()
+if __name__ == "__main__":
+    covi = Covid()
+    covi.LeeDatos(file="Covid\\211220COVID19MEXICO.csv")
 
-dfDefSex = covi.df[["FECHA_DEF", "SEXO"]]
-print(dfDefSex)
-print(dfDefSex.dtypes)
+    dfDefSex = covi.df[["FECHA_DEF", "SEXO"]]
+    covi.df['SEXO'].replace(1, 'Female',inplace=True)
+    covi.df['SEXO'].replace(2, 'Male',inplace=True)    
+    x = covi.df.groupby(covi.df.SEXO).size()
+    plot = x.plot.pie(y='SEXO', figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
+    #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
+   
 
+    print(dfDefSex)
+    print(dfDefSex.dtypes)
 
-# Creating the Series
-sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
+    # Creating the Series
+    sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
   
-# Print the series
-print(sr)
-# find the value counts
-print(sr.value_counts())
+    # Print the series
+    print(sr)
+    # find the value counts
+    print(sr.value_counts())
 
-
-#covi.Miq()
-#covi.Ingreso()
-#covi.Diabetes()
-#plt.show()
+    #covi.Miq()
+    #covi.Ingreso()
+    #covi.Diabetes()
+    #plt.show()
+    plt.title("Covid por SEXO")
+    plt.axis('equal')
+    plt.tight_layout()
+    plt.show()

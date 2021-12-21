@@ -49,6 +49,7 @@ def PosRegular(nds):
 
     return poss
 
-MInc = LeeGrafica("graficas\\matriz2.csv")
-Etq = Etiquetas(MInc)
-MuestraDiGrafica(MInc, Etq, PosRegular(MInc.shape[1]))
+if __name__ == "__main__":
+    MInc = LeeGrafica("graficas\\matriz2.csv")
+    Etq = Etiquetas(MInc)
+    MuestraDiGrafica(MInc, Etq, PosRegular(MInc.shape[1]))
