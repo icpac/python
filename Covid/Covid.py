@@ -92,35 +92,56 @@ class Covid:
         #Imprimimos la otra serie
         print(s_fdc)
 
+    def MuestraPorSexo(self):
+        dfDefSex = self.df[["FECHA_DEF", "SEXO"]]
+        #covi.df['SEXO'].replace(1, 'Female',inplace=True)
+        #covi.df['SEXO'].replace(2, 'Male',inplace=True)    
+        x = self.df.groupby(self.df.SEXO).size()
+        #x['SEXO'].replace(1, 'Female',inplace=True)
+        #x['SEXO'].replace(2, 'Male',inplace=True)    
+        index_values = [ 'Female', 'Male' ]
+        x.index = index_values
+        print(f"X:{x}")
+        #plot = x.plot.pie(y='SEXO', figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
+        plot = x.plot.pie(figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
+        plt.title("Covid por SEXO")
+        plt.axis('equal')
+        plt.tight_layout()
+        plt.show()
+
+    def MuestraPorEstado(self):
+        defun = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33')
+        defunciones = defun.FECHA_DEF.value_counts().sort_index()
+        print(defunciones)
+        x = self.df.groupby(defun.ENTIDAD_NAC).size()
+        #index_values = [ 'Female', 'Male' ]
+        #x.index = index_values
+        #plot = x.plot.pie(figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
+        ax = x.plot(kind='bar')
+        print(f"X: {x}") 
+        plt.title("Covid por Estado")
+        plt.axis('equal')
+        plt.tight_layout()
+        plt.show()
+
+
 
 if __name__ == "__main__":
     covi = Covid()
     covi.LeeDatos(file="Covid\\211220COVID19MEXICO.csv")
-
-    dfDefSex = covi.df[["FECHA_DEF", "SEXO"]]
-    covi.df['SEXO'].replace(1, 'Female',inplace=True)
-    covi.df['SEXO'].replace(2, 'Male',inplace=True)    
-    x = covi.df.groupby(covi.df.SEXO).size()
-    plot = x.plot.pie(y='SEXO', figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
+    #covi.MuestraPorSexo()
+    covi.MuestraPorEstado()
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
-
-    print(dfDefSex)
-    print(dfDefSex.dtypes)
-
     # Creating the Series
-    sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
-  
+    #sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
+    
     # Print the series
-    print(sr)
+    #print(sr)
     # find the value counts
-    print(sr.value_counts())
+    #print(sr.value_counts())
 
     #covi.Miq()
     #covi.Ingreso()
     #covi.Diabetes()
     #plt.show()
-    plt.title("Covid por SEXO")
-    plt.axis('equal')
-    plt.tight_layout()
-    plt.show()
