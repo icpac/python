@@ -114,14 +114,18 @@ class Covid:
         defunciones = defun.FECHA_DEF.value_counts().sort_index()
         print(defunciones)
         x = self.df.groupby(defun.ENTIDAD_NAC).size()
-        #index_values = [ 'Female', 'Male' ]
-        #x.index = index_values
+        index_values = [ 'AS', 'BC', "BS", "CC", "CL",
+        "CM", "CS", "CH", "DF", "DG", "GT", "GR", "HG",
+        "JC", "MC", "MN", "MS", "NT", "NL", "OC", "PL",
+        "QT", "QR", "SP", "SL", "SR", "TC", "TS", "TL",
+        "VZ", "YN", "ZS"]
+        x.index = index_values
         #plot = x.plot.pie(figsize=(4, 4), autopct='%1.1f%%', shadow=True, startangle=45)
-        ax = x.plot(kind='bar')
-        print(f"X: {x}") 
+        y = x.sort_values(ascending=False)
+        ax = y.plot(kind='bar')
         plt.title("Covid por Estado")
-        plt.axis('equal')
-        plt.tight_layout()
+        #plt.axis('equal')
+        #plt.tight_layout()
         plt.show()
 
 
