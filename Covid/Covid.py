@@ -44,9 +44,14 @@ class Covid:
             lbm = ""
 
         rol_defunc.mean().plot(lw=.7, label=lbm)
-        s_fd.plot(label=lb, lw=0.5)
+        #rol_defunc.mean().plot.area()
+        #s_fd.plot(label=lb, lw=0.5)
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=45)
+        plt.show()
         #self.ProyLineal(rol_defunc)
-        self.ProyPoly(rol_defunc, txleg)
+        #self.ProyPoly(rol_defunc, txleg)
 
     def Ingreso(self):
         s_fi = pd.Series(self.df.FECHA_INGRESO.value_counts().sort_index())
@@ -127,14 +132,36 @@ class Covid:
         #plt.axis('equal')
         #plt.tight_layout()
         plt.show()
+    
+    def Total_Sexo(self):
+        """Se usa la columna FECHA DEF para saber cuántos decesos hay"""
+        defunciones = self.df.FECHA_DEF.value_counts().sort_index()
+
+        print("ahi vamos")
+        """
+        s_fd = pd.Series(defunciones[:-1])
+        rol_defunc = s_fd.rolling(7)"""
+
+        """
+        rol_defunc.mean().plot(lw=.7, label=lbm)
+        #rol_defunc.mean().plot.area()
+        #s_fd.plot(label=lb, lw=0.5)
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=45)
+        plt.show()"""
+
 
 
 
 if __name__ == "__main__":
     covi = Covid()
     covi.LeeDatos(file="Covid\\211220COVID19MEXICO.csv")
+
     #covi.MuestraPorSexo()
-    covi.MuestraPorEstado()
+    #covi.MuestraPorEstado()
+    covi.Miq(covi.df, leg=False, txleg="")
+
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
     # Creating the Series
@@ -145,7 +172,6 @@ if __name__ == "__main__":
     # find the value counts
     #print(sr.value_counts())
 
-    #covi.Miq()
     #covi.Ingreso()
     #covi.Diabetes()
     #plt.show()
