@@ -163,7 +163,6 @@ class Covid:
         plt.show()
         
 
-        print("ahi vamos")
         """
         s_fd = pd.Series(defunciones[:-1])
         rol_defunc = s_fd.rolling(7)"""
@@ -177,24 +176,59 @@ class Covid:
         plt.xticks(rotation=45)
         plt.show()"""
 
+    def Comorbilidad(self):
+        defunDia = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & DIABETES == 1')
+        sDiab = defunDia.FECHA_DEF.value_counts().sort_index()
+        sDiab.rename("DIABETES", inplace=True)
+        #rol_diabe = sDiab.rolling(42)
+
+        defunHip = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & HIPERTENSION == 1')
+        sHip = defunHip.FECHA_DEF.value_counts().sort_index()
+        sHip.rename("HIPERTENSION", inplace=True)
+        #rol_hip = sHip.rolling(42)
+
+        #ndf = pd.concat([rol_diabe.mean(), rol_hip.mean()], axis = 1)
+        ndf = pd.concat([sDiab, sHip], axis = 1)
+        print(ndf)
+
+        ndf.reset_index(inplace=True)
+        per = ndf.index.dt.to_period("M")  # new way to get the same
+
+        g = ndf.groupby(per)        
+        g.sum()
+        #ndf.pivot("column", "group", "val").plot(kind='bar')
+        #ndf.plot(x='Team',
+        g.plot(
+        kind='bar',
+        stacked=False,
+        title='Grouped Bar Graph with dataframe')
+
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=25)
+        plt.show()
+
+        #defun.plot(x='FECHA_DEF',
+        #    kind='bar',
+        #    stacked=False,
+        #    title='Grouped Bar Graph with dataframe')
+
 
 
 
 if __name__ == "__main__":
     covi = Covid()
-    covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
-    #covi.LeeDatos(file="Covid\\Prueba.csv")
+    #covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
+    covi.LeeDatos(file="Covid\\Prueba.csv")
 
     #covi.MuestraPorSexo()
     #covi.MuestraPorEstado()
     #covi.Miq(covi.df, leg=False, txleg="")
-    covi.ComportamientoSexo()
+    #covi.ComportamientoSexo()
+    covi.Comorbilidad()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
-    # Creating the Series
-    #sr = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon', 'Rio', 'Chicago', 'Lisbon'])
-    
     # Print the series
     #print(sr)
     # find the value counts
