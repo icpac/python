@@ -140,7 +140,7 @@ class Covid:
         #Serie 
         sDefun = defun.FECHA_DEF.value_counts().sort_index()
         sDefun.rename("TODOS", inplace=True)
-        #rol_defunc = sDefun.rolling(7)
+        rol_defunc = sDefun.rolling(7)
         #rol_defunc.mean().plot(lw=.7)
         #rol_defunc.mean().plot.area()
         #s_fd.plot(label=lb, lw=0.5)
@@ -148,12 +148,13 @@ class Covid:
         defunSex = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & SEXO == 2')
         sSexDefun = defunSex.FECHA_DEF.value_counts().sort_index()
         sSexDefun.rename("HOMBRES", inplace=True)
+        rol_sexDefunc = sSexDefun.rolling(7)
 
-        ndf = pd.concat([sDefun, sSexDefun], axis=1)
+        #ndf = pd.concat([sDefun, sSexDefun], axis=1)
+        ndf = pd.concat([rol_defunc.mean(), rol_sexDefunc.mean()], axis = 1)
         ndf.plot.area(stacked=False)
         print(ndf) 
 
-        #rol_sexDefunc = sSexDefun.rolling(7)
         #rol_sexDefunc.mean().plot.area()
 
         plt.title("Defunciones por Covid", fontsize=10)
@@ -181,7 +182,7 @@ class Covid:
 
 if __name__ == "__main__":
     covi = Covid()
-    covi.LeeDatos(file="Covid\\211220COVID19MEXICO.csv")
+    covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
     #covi.LeeDatos(file="Covid\\Prueba.csv")
 
     #covi.MuestraPorSexo()
