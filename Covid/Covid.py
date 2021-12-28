@@ -133,9 +133,34 @@ class Covid:
         #plt.tight_layout()
         plt.show()
     
-    def Total_Sexo(self):
+    def ComportamientoSexo(self):
         """Se usa la columna FECHA DEF para saber cuántos decesos hay"""
-        defunciones = self.df.FECHA_DEF.value_counts().sort_index()
+        #DataFrame, sólo con fecha de defunción y de méxico
+        defun = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33')
+        #Serie 
+        sDefun = defun.FECHA_DEF.value_counts().sort_index()
+        sDefun.rename("TODOS", inplace=True)
+        #rol_defunc = sDefun.rolling(7)
+        #rol_defunc.mean().plot(lw=.7)
+        #rol_defunc.mean().plot.area()
+        #s_fd.plot(label=lb, lw=0.5)
+
+        defunSex = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & SEXO == 2')
+        sSexDefun = defunSex.FECHA_DEF.value_counts().sort_index()
+        sSexDefun.rename("HOMBRES", inplace=True)
+
+        ndf = pd.concat([sDefun, sSexDefun], axis=1)
+        ndf.plot.area(stacked=False)
+        print(ndf) 
+
+        #rol_sexDefunc = sSexDefun.rolling(7)
+        #rol_sexDefunc.mean().plot.area()
+
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=25)
+        plt.show()
+        
 
         print("ahi vamos")
         """
@@ -157,10 +182,12 @@ class Covid:
 if __name__ == "__main__":
     covi = Covid()
     covi.LeeDatos(file="Covid\\211220COVID19MEXICO.csv")
+    #covi.LeeDatos(file="Covid\\Prueba.csv")
 
     #covi.MuestraPorSexo()
     #covi.MuestraPorEstado()
-    covi.Miq(covi.df, leg=False, txleg="")
+    #covi.Miq(covi.df, leg=False, txleg="")
+    covi.ComportamientoSexo()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
