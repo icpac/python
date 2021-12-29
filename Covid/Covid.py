@@ -13,12 +13,20 @@ import locale
 class Covid:
     def LeeDatos(self, file="Covid.csv"):
         """ Se leen los datos """
+        dtypes = {
+            "DIABETES" : "category",
+            "HIPERTENSION": "category"
+        }
         #Leer archivo, separado por comas
         #nf = "200901COVID19MEXICO.csv"
         nf = "D:\iCPAC\Git\python\Covid\\"
         nf += "211005COVID19MEXICO.csv"
         #nf = "Covi.csv" 
-        self.df = pd.read_csv(file, encoding = "ISO-8859-1")
+        self.df = pd.read_csv(file, 
+        dtype = dtypes,
+        usecols=list(dtypes) + ["FECHA_DEF"],
+        parse_dates=["FECHA_DEF"],
+        encoding = "ISO-8859-1").set_index("FECHA_DEF")
 
     def Estado(self, edo):
         return self.df[self.df['ENTIDAD_RES'] == edo]
@@ -189,20 +197,42 @@ class Covid:
 
         #ndf = pd.concat([rol_diabe.mean(), rol_hip.mean()], axis = 1)
         ndf = pd.concat([sDiab, sHip], axis = 1)
+        ndf.index.rename("FECHA_DEF", inplace = True)
         print(ndf)
 
-        ndf.reset_index(inplace=True)
-        per = ndf.index.dt.to_period("M")  # new way to get the same
+        # Converting the index as date
+        ndf.index = pd.to_datetime(ndf.index)
 
-        g = ndf.groupby(per)        
-        g.sum()
+        #ndf.reset_index(inplace=True)
+        per = ndf.index.to_period("M")  # new way to get the same
+        
+        #ndf.index = pd.to_datetime(ndf['FECHA_DEF'], format='%m/%d/%y %I:%M%p')
+        print(ndf.index)
+        g = ndf.groupby(by=[ndf.index.month, ndf.index.year])        
+
+        print(ndf)
+        #g = ndf.groupby(per)        
+        #g.sum()
+
+        print(f"g: {g}")
         #ndf.pivot("column", "group", "val").plot(kind='bar')
         #ndf.plot(x='Team',
+        
+        """ Se enoja por Fecha_def
+        ndf.plot(x='FECHA_DEF',
+            kind='bar',
+            stacked=False,
+            title='Grouped Bar Graph with dataframe')"""
+        #fig, ax = plt.subplots(figsize=(10,7))
+        #ndf.groupby(['FECHA_DEF']).count()['DIABETES'].plot(ax=ax)
+        #ndf.groupby(['FECHA_DEF']).count()['HIPERTENSION'].plot(ax=ax)
+        """
         g.plot(
         kind='bar',
         stacked=False,
-        title='Grouped Bar Graph with dataframe')
+        title='Grouped Bar Graph with dataframe', ax=ax)"""
 
+        
         plt.title("Defunciones por Covid", fontsize=10)
         plt.suptitle("México, -Dic 2021", fontsize=18)
         plt.xticks(rotation=25)
@@ -217,15 +247,28 @@ class Covid:
 
 
 if __name__ == "__main__":
+    # Set max rows displayed in output to 25
+    pd.set_option("display.max_rows", 25)
+
     covi = Covid()
-    #covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
+    #covi.LeeDatos(file="Covid\\211228COVID19MEXICO.csv")
     covi.LeeDatos(file="Covid\\Prueba.csv")
+    #print(covi.df.tail())
+    print(covi.df.head())
+    print(covi.df.index.min())
+    print(covi.df.index.max())
+    print(covi.df.dtypes)
+    n_by_state = covi.df.groupby([covi.df.index.year])["DIABETES"].count()
+    #n_by_state.head(10)    
+    print(n_by_state)
+
+
 
     #covi.MuestraPorSexo()
     #covi.MuestraPorEstado()
     #covi.Miq(covi.df, leg=False, txleg="")
     #covi.ComportamientoSexo()
-    covi.Comorbilidad()
+    #covi.Comorbilidad()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
