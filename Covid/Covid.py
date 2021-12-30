@@ -14,7 +14,7 @@ class Covid:
     def LeeDatos(self, file="Covid.csv"):
         """ Se leen los datos """
         dtypes = {
-            "DIABETES" : "category",
+            "DIABETES": "category",
             "HIPERTENSION": "category"
         }
         #Leer archivo, separado por comas
@@ -251,16 +251,37 @@ if __name__ == "__main__":
     pd.set_option("display.max_rows", 25)
 
     covi = Covid()
-    #covi.LeeDatos(file="Covid\\211228COVID19MEXICO.csv")
-    covi.LeeDatos(file="Covid\\Prueba.csv")
+    covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
+    #covi.LeeDatos(file="Covid\\Prueba.csv")
     #print(covi.df.tail())
+    dfD = covi.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
+    dfH = covi.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
+    #covi.df['FECHA_DEF'] = pd.to_datetime(covi.df['FECHA_DEF'])
+    dfD.index = pd.to_datetime(dfD.index)
+    dfH.index = pd.to_datetime(dfH.index)
+    """
     print(covi.df.head())
     print(covi.df.index.min())
     print(covi.df.index.max())
-    print(covi.df.dtypes)
-    n_by_state = covi.df.groupby([covi.df.index.year])["DIABETES"].count()
-    #n_by_state.head(10)    
-    print(n_by_state)
+    print(f"Tipos df: {covi.df.dtypes}")"""
+    #print(type(covi.df.FECHA_DEF)) 
+    #print(covi.df[0].FECHA_DEF.year)
+    #n_by_state = covi.df.groupby([covi.df["FECHA_DEF"]])["DIABETES"].count()
+    n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month])['DIABETES'].count()
+    n_by_dateH = dfH.groupby(by = [dfH.index.year, dfH.index.month])['HIPERTENSION'].count()
+    #n_by_date = covi.df.groupby(by = [covi.df.index.year, covi.df.index.month]).filter(lambda x: x['DIABETES'] == '1')
+
+    #newDf = pd.concat(n_by_date, n_by_dateH) 
+    newDf = pd.concat([n_by_date,n_by_dateH], axis=1) # 'index')
+    #n_by_date.plot(kind='bar')
+    newDf.plot(kind='bar')
+    #n_by_state.head(10)  
+    print(n_by_date)
+    plt.title("Defunciones por Covid", fontsize=10)
+    plt.suptitle("México, -Dic 2021", fontsize=18)
+    plt.xticks(rotation=25)
+            
+    plt.show()
 
 
 
