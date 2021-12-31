@@ -15,7 +15,8 @@ class Covid:
         """ Se leen los datos """
         dtypes = {
             "DIABETES": "category",
-            "HIPERTENSION": "category"
+            "HIPERTENSION": "category",
+            "OBESIDAD": "category"
         }
         #Leer archivo, separado por comas
         #nf = "200901COVID19MEXICO.csv"
@@ -185,6 +186,7 @@ class Covid:
         plt.show()"""
 
     def Comorbilidad(self):
+        """
         defunDia = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & DIABETES == 1')
         sDiab = defunDia.FECHA_DEF.value_counts().sort_index()
         sDiab.rename("DIABETES", inplace=True)
@@ -216,7 +218,7 @@ class Covid:
 
         print(f"g: {g}")
         #ndf.pivot("column", "group", "val").plot(kind='bar')
-        #ndf.plot(x='Team',
+        #ndf.plot(x='Team',"""
         
         """ Se enoja por Fecha_def
         ndf.plot(x='FECHA_DEF',
@@ -232,17 +234,137 @@ class Covid:
         stacked=False,
         title='Grouped Bar Graph with dataframe', ax=ax)"""
 
-        
+        """
         plt.title("Defunciones por Covid", fontsize=10)
         plt.suptitle("México, -Dic 2021", fontsize=18)
         plt.xticks(rotation=25)
-        plt.show()
+        plt.show()"""
 
         #defun.plot(x='FECHA_DEF',
         #    kind='bar',
         #    stacked=False,
         #    title='Grouped Bar Graph with dataframe')
+        #print(covi.df.tail())
+        dfD = covi.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
+        dfH = covi.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
+        #covi.df['FECHA_DEF'] = pd.to_datetime(covi.df['FECHA_DEF'])
+        dfD.index = pd.to_datetime(dfD.index)
+        dfH.index = pd.to_datetime(dfH.index)
+        """
+        print(covi.df.head())
+        print(covi.df.index.min())
+        print(covi.df.index.max())
+        print(f"Tipos df: {covi.df.dtypes}")"""
+        #print(type(covi.df.FECHA_DEF)) 
+        #print(covi.df[0].FECHA_DEF.year)
+        #n_by_state = covi.df.groupby([covi.df["FECHA_DEF"]])["DIABETES"].count()
+        n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month])['DIABETES'].count()
+        n_by_dateH = dfH.groupby(by = [dfH.index.year, dfH.index.month])['HIPERTENSION'].count()
+        #n_by_date = covi.df.groupby(by = [covi.df.index.year, covi.df.index.month]).filter(lambda x: x['DIABETES'] == '1')
 
+        #newDf = pd.concat(n_by_date, n_by_dateH) 
+        newDf = pd.concat([n_by_date,n_by_dateH], axis=1) # 'index')
+        #n_by_date.plot(kind='bar')
+        newDf.plot(kind='bar')
+        #n_by_state.head(10)  
+        print(n_by_date)
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=25)
+            
+        plt.show()
+
+
+    def Comorbilidad2(self):
+        """
+        sDiab = defunDia.FECHA_DEF.value_counts().sort_index()
+        sDiab.rename("DIABETES", inplace=True)
+        #rol_diabe = sDiab.rolling(42)
+
+        defunHip = self.df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33 & HIPERTENSION == 1')
+        sHip = defunHip.FECHA_DEF.value_counts().sort_index()
+        sHip.rename("HIPERTENSION", inplace=True)
+        #rol_hip = sHip.rolling(42)
+
+        #ndf = pd.concat([rol_diabe.mean(), rol_hip.mean()], axis = 1)
+        ndf = pd.concat([sDiab, sHip], axis = 1)
+        ndf.index.rename("FECHA_DEF", inplace = True)
+        print(ndf)
+
+        # Converting the index as date
+        ndf.index = pd.to_datetime(ndf.index)
+
+        #ndf.reset_index(inplace=True)
+        per = ndf.index.to_period("M")  # new way to get the same
+        
+        #ndf.index = pd.to_datetime(ndf['FECHA_DEF'], format='%m/%d/%y %I:%M%p')
+        print(ndf.index)
+        g = ndf.groupby(by=[ndf.index.month, ndf.index.year])        
+
+        print(ndf)
+        #g = ndf.groupby(per)        
+        #g.sum()
+
+        print(f"g: {g}")
+        #ndf.pivot("column", "group", "val").plot(kind='bar')
+        #ndf.plot(x='Team',"""
+        
+        """ Se enoja por Fecha_def
+        ndf.plot(x='FECHA_DEF',
+            kind='bar',
+            stacked=False,
+            title='Grouped Bar Graph with dataframe')"""
+        #fig, ax = plt.subplots(figsize=(10,7))
+        #ndf.groupby(['FECHA_DEF']).count()['DIABETES'].plot(ax=ax)
+        #ndf.groupby(['FECHA_DEF']).count()['HIPERTENSION'].plot(ax=ax)
+        """
+        g.plot(
+        kind='bar',
+        stacked=False,
+        title='Grouped Bar Graph with dataframe', ax=ax)"""
+
+        """
+        plt.title("Defunciones por Covid", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=25)
+        plt.show()"""
+
+        #defun.plot(x='FECHA_DEF',
+        #    kind='bar',
+        #    stacked=False,
+        #    title='Grouped Bar Graph with dataframe')
+        #print(covi.df.tail())
+        dfD = covi.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
+        dfH = covi.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
+        dfO = self.df.query('FECHA_DEF != "9999-99-99" & (OBESIDAD == "1")')
+        #covi.df['FECHA_DEF'] = pd.to_datetime(covi.df['FECHA_DEF'])
+        dfD.index = pd.to_datetime(dfD.index)
+        dfH.index = pd.to_datetime(dfH.index)
+        dfO.index = pd.to_datetime(dfO.index)
+        """
+        print(covi.df.head())
+        print(covi.df.index.min())
+        print(covi.df.index.max())
+        print(f"Tipos df: {covi.df.dtypes}")"""
+        #print(type(covi.df.FECHA_DEF)) 
+        #print(covi.df[0].FECHA_DEF.year)
+        #n_by_state = covi.df.groupby([covi.df["FECHA_DEF"]])["DIABETES"].count()
+        n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month])['DIABETES'].count()
+        n_by_dateH = dfH.groupby(by = [dfH.index.year, dfH.index.month])['HIPERTENSION'].count()
+        n_by_dateO = dfO.groupby(by = [dfO.index.year, dfO.index.month])['OBESIDAD'].count()
+        #n_by_date = covi.df.groupby(by = [covi.df.index.year, covi.df.index.month]).filter(lambda x: x['DIABETES'] == '1')
+
+        #newDf = pd.concat(n_by_date, n_by_dateH) 
+        newDf = pd.concat([n_by_date,n_by_dateH, n_by_dateO], axis=1) # 'index')
+        #n_by_date.plot(kind='bar')
+        newDf.plot(kind='bar', stacked = True)
+        #n_by_state.head(10)  
+        print(n_by_date)
+        plt.title("Defunciones por Covid (Datos abiertos Gob. Mex.)", fontsize=10)
+        plt.suptitle("México, -Dic 2021", fontsize=18)
+        plt.xticks(rotation=35)
+            
+        plt.show()
 
 
 
@@ -253,36 +375,7 @@ if __name__ == "__main__":
     covi = Covid()
     covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
     #covi.LeeDatos(file="Covid\\Prueba.csv")
-    #print(covi.df.tail())
-    dfD = covi.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
-    dfH = covi.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
-    #covi.df['FECHA_DEF'] = pd.to_datetime(covi.df['FECHA_DEF'])
-    dfD.index = pd.to_datetime(dfD.index)
-    dfH.index = pd.to_datetime(dfH.index)
-    """
-    print(covi.df.head())
-    print(covi.df.index.min())
-    print(covi.df.index.max())
-    print(f"Tipos df: {covi.df.dtypes}")"""
-    #print(type(covi.df.FECHA_DEF)) 
-    #print(covi.df[0].FECHA_DEF.year)
-    #n_by_state = covi.df.groupby([covi.df["FECHA_DEF"]])["DIABETES"].count()
-    n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month])['DIABETES'].count()
-    n_by_dateH = dfH.groupby(by = [dfH.index.year, dfH.index.month])['HIPERTENSION'].count()
-    #n_by_date = covi.df.groupby(by = [covi.df.index.year, covi.df.index.month]).filter(lambda x: x['DIABETES'] == '1')
-
-    #newDf = pd.concat(n_by_date, n_by_dateH) 
-    newDf = pd.concat([n_by_date,n_by_dateH], axis=1) # 'index')
-    #n_by_date.plot(kind='bar')
-    newDf.plot(kind='bar')
-    #n_by_state.head(10)  
-    print(n_by_date)
-    plt.title("Defunciones por Covid", fontsize=10)
-    plt.suptitle("México, -Dic 2021", fontsize=18)
-    plt.xticks(rotation=25)
-            
-    plt.show()
-
+    covi.Comorbilidad2()
 
 
     #covi.MuestraPorSexo()
