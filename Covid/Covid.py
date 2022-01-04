@@ -55,9 +55,9 @@ class Covid:
         rol_defunc.mean().plot(lw=.7, label=lbm)
         #rol_defunc.mean().plot.area()
         #s_fd.plot(label=lb, lw=0.5)
-        plt.title("Defunciones por Covid", fontsize=10)
-        plt.suptitle("México, -Dic 2021", fontsize=18)
-        plt.xticks(rotation=45)
+        plt.title("Defunciones por Covid (Fuente: Datos abiertos gobierno de México)", fontsize=10)
+        plt.suptitle("México, Del inicio hasta 3 Ene 2022", fontsize=18)
+        plt.xticks(rotation=20)
         plt.show()
         #self.ProyLineal(rol_defunc)
         #self.ProyPoly(rol_defunc, txleg)
@@ -334,8 +334,8 @@ class Covid:
         #    stacked=False,
         #    title='Grouped Bar Graph with dataframe')
         #print(covi.df.tail())
-        dfD = covi.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
-        dfH = covi.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
+        dfD = self.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
+        dfH = self.df.query('FECHA_DEF != "9999-99-99" & (HIPERTENSION == "1")')
         dfO = self.df.query('FECHA_DEF != "9999-99-99" & (OBESIDAD == "1")')
         #covi.df['FECHA_DEF'] = pd.to_datetime(covi.df['FECHA_DEF'])
         dfD.index = pd.to_datetime(dfD.index)
@@ -366,6 +366,64 @@ class Covid:
             
         plt.show()
 
+    def Correlacion(self):
+        """ Se leen los datos """
+        dtypes = {
+            "NEUMONIA": "category",
+            "DIABETES": "category",
+            "EPOC": "category",
+            "ASMA": "category",
+            "INMUSUPR": "category",
+            "HIPERTENSION": "category",
+            "OTRA_COM": "category",
+            "OBESIDAD": "category"
+        }
+
+        file = "Covid\\Prueba.csv"
+        file = "Covid\\220103COVID19MEXICO.csv"
+        self.df = pd.read_csv(file, 
+        dtype = dtypes,
+        #usecols=["DIABETES", "FECHA_DEF"],
+        usecols=list(dtypes) + ["FECHA_DEF"],
+        parse_dates=["FECHA_DEF"],
+        encoding = "ISO-8859-1").set_index("FECHA_DEF")
+
+        dfD = self.df.query('FECHA_DEF != "9999-99-99"')
+        dfD.index = pd.to_datetime(dfD.index)
+        n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month]).count()
+        print("Tipo date\n", type(n_by_date))
+        print(n_by_date)
+        #st = n_by_date["DIABETES"]
+        st = n_by_date["INMUSUPR"]
+        stc = st.cumsum()
+        print(stc)
+
+        
+        #dfDia = self.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
+        dfDia = self.df.query('FECHA_DEF != "9999-99-99" & (INMUSUPR == "1")')
+        dfDia.index = pd.to_datetime(dfDia.index)
+        #n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])["DIABETES"].count()
+        n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])["INMUSUPR"].count()
+        print("Tipo\n", type(n_by_dateDia))
+        print(n_by_dateDia.head())
+        #print(len(n_by_dateDia.columns))
+        #std = n_by_dateDia["DIABETES"]
+        nstc = n_by_dateDia.cumsum()
+        df=pd.concat([stc,nstc],axis=1)
+        print("df \n", df)
+        """
+        lst_series = [stc, std]
+        ndt = pd.DataFrame(lst_series)
+        print(ndt)"""
+        #sd = n_by_dateDia["DIABETES"]
+        
+        nss = df.iloc[:, 0]
+        print("nss:\n", type(nss))
+        print(nss)
+        #plt.plot(nss, df.iloc[:, 1])
+        plt.scatter(nss, df.iloc[:, 1])
+        plt.show()
+
 
 
 if __name__ == "__main__":
@@ -373,9 +431,10 @@ if __name__ == "__main__":
     pd.set_option("display.max_rows", 25)
 
     covi = Covid()
-    covi.LeeDatos(file="Covid\\211227COVID19MEXICO.csv")
+    # Cada uno lo lee
+    #covi.LeeDatos(file="Covid\\220103COVID19MEXICO.csv")
     #covi.LeeDatos(file="Covid\\Prueba.csv")
-    covi.Comorbilidad2()
+    #covi.Comorbilidad2()
 
 
     #covi.MuestraPorSexo()
@@ -383,6 +442,7 @@ if __name__ == "__main__":
     #covi.Miq(covi.df, leg=False, txleg="")
     #covi.ComportamientoSexo()
     #covi.Comorbilidad()
+    covi.Correlacion()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
