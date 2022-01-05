@@ -9,6 +9,7 @@ import numpy as np
 from sklearn.metrics import r2_score
 import datetime
 import locale
+from matplotlib.ticker import StrMethodFormatter
 
 class Covid:
     def LeeDatos(self, file="Covid.csv"):
@@ -376,6 +377,7 @@ class Covid:
             "INMUSUPR": "category",
             "HIPERTENSION": "category",
             "OTRA_COM": "category",
+            "CARDIOVASCULAR": "category",
             "OBESIDAD": "category"
         }
 
@@ -383,7 +385,6 @@ class Covid:
         file = "Covid\\220103COVID19MEXICO.csv"
         self.df = pd.read_csv(file, 
         dtype = dtypes,
-        #usecols=["DIABETES", "FECHA_DEF"],
         usecols=list(dtypes) + ["FECHA_DEF"],
         parse_dates=["FECHA_DEF"],
         encoding = "ISO-8859-1").set_index("FECHA_DEF")
@@ -398,30 +399,89 @@ class Covid:
         stc = st.cumsum()
         print(stc)
 
+        self.PlotCorrelacion("DIABETES", stc)
+        self.PlotCorrelacion("NEUMONIA", stc)
+        self.PlotCorrelacion("EPOC", stc)
+        self.PlotCorrelacion("ASMA", stc)
+        self.PlotCorrelacion("INMUSUPR", stc)
+        self.PlotCorrelacion("HIPERTENSION", stc)
+        self.PlotCorrelacion("OTRA_COM", stc)
+        self.PlotCorrelacion("OBESIDAD", stc)
+        self.PlotCorrelacion("CARDIOVASCULAR", stc)
         
-        #dfDia = self.df.query('FECHA_DEF != "9999-99-99" & (DIABETES == "1")')
-        dfDia = self.df.query('FECHA_DEF != "9999-99-99" & (INMUSUPR == "1")')
+
+        #plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+        plt.legend(loc='upper left', borderaxespad=0.)
+        plt.show()
+
+
+        
+    def PlotCorrelacion(self, campo, stc):
+        dfDia = self.df.query('FECHA_DEF != "9999-99-99" & (' + campo + ' == "1")')
         dfDia.index = pd.to_datetime(dfDia.index)
-        #n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])["DIABETES"].count()
-        n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])["INMUSUPR"].count()
-        print("Tipo\n", type(n_by_dateDia))
-        print(n_by_dateDia.head())
-        #print(len(n_by_dateDia.columns))
-        #std = n_by_dateDia["DIABETES"]
-        nstc = n_by_dateDia.cumsum()
-        df=pd.concat([stc,nstc],axis=1)
-        print("df \n", df)
-        """
-        lst_series = [stc, std]
-        ndt = pd.DataFrame(lst_series)
-        print(ndt)"""
-        #sd = n_by_dateDia["DIABETES"]
+        n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])[campo].count()
+        #nstc = n_by_dateDia.cumsum()
+        nstc = n_by_dateDia
         
+        df=pd.concat([stc,nstc],axis=1)
+
         nss = df.iloc[:, 0]
-        print("nss:\n", type(nss))
-        print(nss)
-        #plt.plot(nss, df.iloc[:, 1])
-        plt.scatter(nss, df.iloc[:, 1])
+
+        plt.scatter(nss, df.iloc[:, 1], label=campo)
+
+    def Histograma(self):
+        #file = "Covid\\Prueba.csv"
+        file = "Covid\\220103COVID19MEXICO.csv"
+        self.df = pd.read_csv(file,
+        usecols=["FECHA_SINTOMAS", "FECHA_DEF", "DIABETES"],
+        parse_dates=["FECHA_SINTOMAS", "FECHA_DEF"])
+        """
+        self.df['FECHA_INGRESO'] = self.df['FECHA_INGRESO'].astype('datetime64[ns]')
+        self.df['FECHA_DEF'] = self.df['FECHA_DEF'].astype('datetime64[ns]')"""
+
+        ndfDef = self.df.query('FECHA_DEF != "9999-99-99"')
+        #ndfDef['FECHA_DEF'] = ndfDef['FECHA_DEF'].astype('datetime64[ns]')
+        ndfDef['FECHA_DEF'] = pd.to_datetime(ndfDef['FECHA_DEF'])#, format='%d%b%Y')
+
+        print(f"Shape: {ndfDef.shape}")
+        print(f"Tipos: {ndfDef.dtypes}")
+        
+        ndfDef[['FECHA_SINTOMAS','FECHA_DEF']] = ndfDef[['FECHA_SINTOMAS','FECHA_DEF']].apply(pd.to_datetime) #if conversion required
+        ndfDef['C'] = (ndfDef['FECHA_DEF'] - ndfDef['FECHA_SINTOMAS']).dt.days        
+
+        diasDf  = ndfDef.query('C > 63')
+        print(diasDf.sort_values("C").tail())
+        ax = diasDf.hist(column="C", bins=25, grid=False,figsize=(10,6), color='#86bf91', zorder=2, rwidth=0.9)
+        ax = ax[0]
+        for x in ax:
+            # Despine
+            x.spines['right'].set_visible(False)
+            x.spines['top'].set_visible(False)
+            x.spines['left'].set_visible(False)
+
+            # Switch off ticks
+            x.tick_params(axis="both", which="both", bottom="off", top="off", labelbottom="on", left="off", right="off", labelleft="on")
+
+            # Draw horizontal axis lines
+            vals = x.get_yticks()
+            for tick in vals:
+                x.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#eeeeee', zorder=1)
+
+            # Remove title
+            x.set_title("")
+
+            # Set x-axis label
+            x.set_xlabel("Duración con Síntomas (días)", labelpad=20, weight='bold', size=12)
+
+            # Set y-axis label
+            x.set_ylabel("Pacientes", labelpad=20, weight='bold', size=12)
+
+            # Format y-axis label
+            x.yaxis.set_major_formatter(StrMethodFormatter('{x:,g}'))        
+            
+            
+        plt.title("Histograma de Duración con Sintomas")
+        plt.legend(loc='upper left', borderaxespad=0.)        
         plt.show()
 
 
@@ -442,7 +502,8 @@ if __name__ == "__main__":
     #covi.Miq(covi.df, leg=False, txleg="")
     #covi.ComportamientoSexo()
     #covi.Comorbilidad()
-    covi.Correlacion()
+    #covi.Correlacion()
+    covi.Histograma()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
