@@ -486,6 +486,8 @@ class Covid:
 
 
     def DonutChart(self):
+        # https://towardsdatascience.com/donut-plot-for-data-analysis-5aacac591741
+        # https://www.analyticsvidhya.com/blog/2021/06/donut-plots-data-visualization-with-python/
         file = "Covid\\Prueba.csv"
         file = "Covid\\220103COVID19MEXICO.csv"
 
