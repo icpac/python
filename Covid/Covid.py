@@ -485,6 +485,48 @@ class Covid:
         plt.show()
 
 
+    def DonutChart(self):
+        file = "Covid\\Prueba.csv"
+        file = "Covid\\220103COVID19MEXICO.csv"
+
+        df = pd.read_csv(file,
+        usecols=["ENTIDAD_NAC", "FECHA_DEF", "DIABETES"],
+        parse_dates=["FECHA_DEF"])
+
+        defun = df.query('FECHA_DEF != "9999-99-99" & ENTIDAD_NAC < 33')
+        """
+        defunciones = defun.FECHA_DEF.value_counts().sort_index()
+        print(type(defunciones))
+        print(defunciones.tail())
+        print(defunciones)"""
+
+        x = df.groupby(defun.ENTIDAD_NAC).size()
+        print(type(x))
+        print(x.tail())
+        index_values = [ 'Ags', 'BC', "BCS", "Camp", "Coah",
+        "Col", "Chis", "Chih", "CDMx", "Dgo", "Gto", "Gro", "Hgo",
+        "Jal", "EdoMex", "Mich", "Mor", "Nay", "NL", "Oax", "Pue",
+        "Qro", "QRoo", "SLP", "Sin", "Son", "Tab", "Tamps", "Tlax",
+        "Ver", "Yuc", "Zac"]
+        
+        x.index = index_values
+        #data = x.sort_values(ascending=False)
+        data = x
+
+        plt.title("Covid por Estado")
+        total = sum(data)
+        print(total)
+        data_per = data/total*100
+        print(data_per)
+        explode = (0, 0, 0, 0, 0, 0,
+        0,0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+        #plt.pie(data, explode=explode, labels = [round(i,2) for i in (list(data_per))])
+        plt.pie(data, explode=explode, labels = index_values)
+        circle = plt.Circle((0,0), 0.5, color='white')
+        p=plt.gcf()
+        p.gca().add_artist(circle)
+        plt.show()
+
 
 if __name__ == "__main__":
     # Set max rows displayed in output to 25
@@ -503,7 +545,8 @@ if __name__ == "__main__":
     #covi.ComportamientoSexo()
     #covi.Comorbilidad()
     #covi.Correlacion()
-    covi.Histograma()
+    #covi.Histograma()
+    covi.DonutChart()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
