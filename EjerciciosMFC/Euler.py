@@ -1,48 +1,64 @@
+import math
 
-def Primos(qeNmro = 600851475143):
-    listaPrimos = [2]
-    limte = 10000 #600851475143
+
+def Primos(qeNmro = 600851475143, listaPrimos=[2]):
+    limte = 100000 #600851475143
     numro = 3
     noEs = False
     maxmoPrimo = 1
+    esPrio = False
     while numro <= limte:
         for i in listaPrimos:
+            if numro == i:
+                esPrimo = True
+                break
             if numro % i == 0:
                 noEs = True
                 break
 
         if noEs == False:
             listaPrimos.append(numro)
+            esPrimo = True
             #if 600851475143 % numro == 0:
             #if 8462696833 % numro == 0:
             #if 10086647 % numro == 0:
+        if esPrimo:
             if qeNmro % numro == 0:
                 maxmoPrimo = numro
                 print(f"Factor: {numro}")
         numro += 2
         noEs = False
+        esPrimo = False
 
     print("El máximo que lo divide es:")
     print(maxmoPrimo)
 
 
-numro = 998001
-numro = 997799
-numro = 996699
-numro = 995599
-numro = 994499
-numro = 993399
-numro = 992299
-numro = 991199
-990099
-989989
-988889
-987789
-986689
-985589
-984489
-983389
-Primos(numro)
+def Palindromo():
+    # 999*999 = 998001
+    numro = 998001
+    numro = 997799
+
+    listaPrimos = [2]
+    numro = 997
+    for i in range(997,900, -1):
+        partes = numro 
+        entfrac = math.modf(partes/10)
+        partDere = entfrac[0]*1000
+        partes = entfrac[1]
+        entfrac = math.modf(partes/10)
+        partDere = partDere + entfrac[0]*100
+        partes = entfrac[1]
+        entfrac = math.modf(partes/10)
+        partDere = partDere + entfrac[0]*10
+
+        numro = int(numro*1000 + partDere)
+        print(numro)
+        print(Primos(numro,listaPrimos))
+        print("")
+        numro = i
+
+
 
 
 def fibncci():
