@@ -14,16 +14,12 @@ from matplotlib.ticker import StrMethodFormatter
 class Covid:
     def LeeDatos(self, file="Covid.csv"):
         """ Se leen los datos """
+        #Leer archivo, separado por comas
         dtypes = {
             "DIABETES": "category",
             "HIPERTENSION": "category",
             "OBESIDAD": "category"
         }
-        #Leer archivo, separado por comas
-        #nf = "200901COVID19MEXICO.csv"
-        nf = "D:\iCPAC\Git\python\Covid\\"
-        nf += "211005COVID19MEXICO.csv"
-        #nf = "Covi.csv" 
         self.df = pd.read_csv(file, 
         dtype = dtypes,
         usecols=list(dtypes) + ["FECHA_DEF"],
@@ -529,6 +525,125 @@ class Covid:
         p.gca().add_artist(circle)
         plt.show()
 
+    def GraphBubble(self):
+        """ Se leen los datos """
+        dtypes = {
+            "NEUMONIA": "category",
+            "DIABETES": "category",
+            "EPOC": "category",
+            "ASMA": "category",
+            "INMUSUPR": "category",
+            "HIPERTENSION": "category",
+            "OTRA_COM": "category",
+            "CARDIOVASCULAR": "category",
+            "OBESIDAD": "category"
+        }
+
+        file = "Covid\\Prueba.csv"
+        #file = "Covid\\220103COVID19MEXICO.csv"
+        #DataFrame
+        df = pd.read_csv(file, 
+        dtype = dtypes,
+        usecols=list(dtypes) + ["FECHA_DEF"],
+        parse_dates=["FECHA_DEF"],
+        encoding = "ISO-8859-1").set_index("FECHA_DEF")
+
+        #DataFrame
+        dfD = df.query('FECHA_DEF != "9999-99-99"')
+        dfD.index = pd.to_datetime(dfD.index)
+
+        #DataFrame
+        n_by_date  = dfD.groupby(by = [dfD.index.year, dfD.index.month]).count()
+
+        print("Tipo date\n", type(n_by_date))
+        print(n_by_date.tail())
+
+        #st = n_by_date["DIABETES"]
+        print(f"Shape: {len(n_by_date.index)}")
+        datax = np.arange(len(n_by_date.index))
+        print(f"Datax: {datax}")
+        
+        
+        st = n_by_date["INMUSUPR"]
+        stc = st.cumsum()
+        stc = st
+        print(stc)
+
+
+        campo = "DIABETES"
+        dfDia = df.query('FECHA_DEF != "9999-99-99" & (' + campo + ' == "1")')
+        dfDia.index = pd.to_datetime(dfDia.index)
+        n_by_dateDia  = dfDia.groupby(by = [dfDia.index.year, dfDia.index.month])[campo].count()
+        std = n_by_dateDia[campo]
+
+
+
+
+        np.random.seed(42)
+        N = 100
+        N = len(n_by_date.index)
+        N = len(n_by_dateDia.index)
+        x = np.random.normal(170, 20, N)
+        x = np.arange(N)
+        y = x + np.random.normal(5, 25, N)
+        y = x + stc
+        colors = np.random.rand(N)
+        colors = np.empty(N); 
+        colors = np.full(N, "#88c999")
+        colorsD = np.full(N, "#88c888")
+
+        area = (25 * np.random.rand(N))**2
+        area = (.0025 * y)**2
+        areaD = (.0025 * std)**2
+        df = pd.DataFrame({
+        'X': np.append(x, x),
+        'Y': y.append(std),
+        'Colors': np.append(colors, colorsD),
+        "bubble_size":area.append(areaD)})
+
+        print(f"Df: {df}")
+        """
+        dfD = pd.DataFrame({
+            'X': x,
+            'Y': std,
+            "bubble_size": (.0025 * std)**2})"""
+
+        print(df.head(n=3))
+        # scatter plot with scatter() function
+        """
+        plt.scatter('X', 'Y', data=df)
+        plt.xlabel("X", size=16)
+        plt.ylabel("y", size=16)
+        plt.title("Scatter Plot with Matplotlib", size=18)"""
+
+        """
+        # scatter plot with scatter() function
+        # transparency with "alpha"
+        # bubble size with "s"
+        plt.scatter('X', 'Y', 
+             s='bubble_size',
+             alpha=0.5, 
+             data=df)
+        plt.xlabel("X", size=16)
+        plt.ylabel("y", size=16)
+        plt.title("Bubble Plot with Matplotlib", size=18)"""
+
+        # scatter plot with scatter() function
+        # transparency with "alpha"
+        # bubble size with "s"
+        # color the bubbles with "c"
+        plt.scatter('X', 'Y',
+             s='bubble_size',
+             c='Colors',
+             alpha=0.5, data=df)
+
+        plt.xlabel("X", size=16)
+        plt.ylabel("y", size=16)
+        plt.title("Bubble Plot with Colors: Matplotlib", size=18)
+
+        plt.show()
+
+
 
 if __name__ == "__main__":
     # Set max rows displayed in output to 25
@@ -548,7 +663,8 @@ if __name__ == "__main__":
     #covi.Comorbilidad()
     #covi.Correlacion()
     #covi.Histograma()
-    covi.DonutChart()
+    #covi.DonutChart()
+    covi.GraphBubble()
 
     #plot = x.plot.pie(y=x.index, figsize=(5, 5), autopct='%1.1f%%')
    
