@@ -52,6 +52,31 @@ lstnumros = [
 "71636269561882670428252483600823257530420752963450",
 ]
 
+def Collatz(numro):
+    sec = 1
+    print(numro)
+    while numro > 1:
+        if numro % 2 == 0:
+            numro = numro // 2 
+        else:
+            numro = 3*numro + 1
+        print(numro)
+        sec += 1
+
+    return sec
+
+def MaxSecColl():
+    nmmax = 0
+    sec = 0
+    for i in range(511000,1048576):
+        nvsec = Collatz(i)
+        if nvsec > sec:
+            sec = nvsec
+            nmmax = i
+
+    print(f"maxima secuencia: {nmmax}")
+print(f"maxima secuencia: {Collatz(837799)}")
+
 def NumroTringlar(yesmo = 5):
     t = 1
     natral = 1
@@ -61,26 +86,26 @@ def NumroTringlar(yesmo = 5):
         t += natral
 
 
-
-maxdiv = 0
-divisores = 0
-for i in NumroTringlar(12500):
-    #if i%2 == 0 and i>:
-    if i>66130750 and i%2 == 0:
-        #print(i)
-        divisores = 2
-        for j in range(2, i//2+1):
-            if i%j == 0:
-                divisores+=1
+def MasDivsres():
+    maxdiv = 0
+    divisores = 0
+    for i in NumroTringlar(12500):
+        #if i%2 == 0 and i>:
+        if i>66130750 and i%2 == 0:
+            #print(i)
+            divisores = 2
+            for j in range(2, i//2+1):
+                if i%j == 0:
+                    divisores+=1
         
-        #if divisores > maxdiv:
-        #    maxdiv = divisores
-        if divisores > 500:
-            print(f"Este es el chido\n {i}")
-            break
+            #if divisores > maxdiv:
+            #    maxdiv = divisores
+            if divisores > 500:
+                print(f"Este es el chido\n {i}")
+                break
 
-print(i)
-print(f"Maximo divisores\n{maxdiv}")
+    print(i)
+    print(f"Maximo divisores\n{maxdiv}")
 
 
 
