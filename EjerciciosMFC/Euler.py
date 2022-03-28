@@ -52,6 +52,38 @@ lstnumros = [
 "71636269561882670428252483600823257530420752963450",
 ]
 
+def NumroTringlar(yesmo = 5):
+    t = 1
+    natral = 1
+    while natral <= yesmo:
+        yield t
+        natral += 1
+        t += natral
+
+
+
+maxdiv = 0
+divisores = 0
+for i in NumroTringlar(12500):
+    #if i%2 == 0 and i>:
+    if i>66130750 and i%2 == 0:
+        #print(i)
+        divisores = 2
+        for j in range(2, i//2+1):
+            if i%j == 0:
+                divisores+=1
+        
+        #if divisores > maxdiv:
+        #    maxdiv = divisores
+        if divisores > 500:
+            print(f"Este es el chido\n {i}")
+            break
+
+print(i)
+print(f"Maximo divisores\n{maxdiv}")
+
+
+
 
 def TernaPitagorica(numro = 1000):
     c = numro-3
@@ -81,7 +113,6 @@ def TernaPitagorica(numro = 1000):
 
 def TernaPitagoricaMil():
     TernaPitagorica(numro = 1000)
-
 
 
 def encntraProdcto(paso = 3):
