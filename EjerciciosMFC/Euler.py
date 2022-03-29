@@ -51,6 +51,102 @@ lstnumros = [
 "05886116467109405077541002256983155200055935729725",
 "71636269561882670428252483600823257530420752963450",
 ]
+"""
+ 2 1 
+ 1 2
+ 2x2 = 2(2x1) = 1 = 2
+ 
+ 6 3 1
+ 3 4 3
+ 1 3 6 
+ 3x3 = 2(3x2) = 2(3x1+2x2) = 2(1+2)= 2*3 = 6
+ 2x3 = 3
+
+ 20  10   4  1
+ 10  12   9  4
+  4   9  12 10 
+  1   4  10 20 
+2(4x3) = 2(4x2+3x3) = 2((4x1+3x2)+3x3)
+3x2 = 3x1+2x2 = 1+2 = 3
+= 2((1+3)+6) = 20
+
+5x5 = 
+2(5x4) = 2(5x3+4x4) = 2((5x2+4x3)+4x4)
+2(((5x1+4x2)+(4x2+3x3))+4x4)
+
+4x2 = 4x1+3x2
+3x2 = 3x1 +2x2
+
+ 20  10  15   5  1
+ 10  12   9  16  5
+ 15   9  12  10  0 
+  5   4  10  20  0
+  1   0   0   0  0 
+5x5 = 2 5x4 
+
+ 20  10  56  21  6  1
+ 10  12   9  16  5  0
+ 15   9  12  10  0  0
+  5   4  10  20  0  0
+  1   0   0   0  0  0
+  0   0   0   0  0  0
+5
+ """
+
+
+#function to calculate paths
+def paths(n):
+#apply the above stated rule for n iterations
+    j = 1
+    for i in range(1,n):
+        j = j * (n + i) / i
+    return j
+
+def main():
+  # input grid size
+  p = paths(2);
+
+#print paths
+  print('The number of paths are:')
+  print(p)
+
+main()
+
+def Lattce(ren, col):
+    if col == ren:
+        return 2*Lattce(ren, col-1)
+    if col == 1:
+        return 1
+    if col > 1:
+        if col+1 == ren:
+            return Lattce(ren, col-1)+Lattce(col, col)
+        else:
+            return Lattce(ren, col-1)+Lattce(ren-1, col)
+    else:
+        return 0 
+
+m = 20
+#print (f"Lattice: \n {Lattce(m, m)}")
+
+val = (math.factorial((m-1)*2))/ (math.factorial(m-1) * math.factorial(2*(m-1)-(m-1)))
+print(f"Factorial = {val}")
+"""
+2 x 2 = 2!/1!(2-1)! = 2
+3x3 = (3+1)! /2!(3-1)! = 24/4 = 6
+4x4 = (4+2)!/3!(6-3)! = 6!/3!3! = 120/6 = 20
+5x5 = (2(4-1))! / (4-1)! (2(4-1)-(4-1))!
+       
+4, 4 = 2(4, 3)
+2(4x2+3x3) = 2((4x1+3x2)+3x3)
+3x2 = 3x1+2x2 = 1+2 = 3
+= 2((1+3)+6) = 20
+
+3x3 = 2(3x2) = 2(3x1+2x2) = 2(1+2)= 2*3 = 6
+ 
+2(4,4) = 
+(4, 4) = 2(4,3 + 2(3,3))
+4, 3 = 4,2
+"""
 
 def Collatz(numro):
     sec = 1
@@ -75,7 +171,9 @@ def MaxSecColl():
             nmmax = i
 
     print(f"maxima secuencia: {nmmax}")
-print(f"maxima secuencia: {Collatz(837799)}")
+
+def CalCollatz():
+    print(f"maxima secuencia: {Collatz(837799)}")
 
 def NumroTringlar(yesmo = 5):
     t = 1
