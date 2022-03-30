@@ -1,8 +1,49 @@
 import math
 from ntpath import join
 import numpy as np
+import scipy.special
+
+# the two give the same results 
+#val = scipy.special.binom(2*19, 19)
+val = scipy.special.binom(2*4, 4)
+print(f"binom 10 - 5: {val}")
+val = math.factorial(2*19)/ (math.factorial(19) * math.factorial(19))
+print(f"binom 10 - 5: {val}")
 
 
+"""
+Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.
+"""
+
+
+def SumaCadena2():
+    cad = str(math.factorial(100))
+    print("100!= ", cad)
+    sum = 0
+    for x in cad:
+        sum += int(x)
+
+    print("La suma es: ", sum)
+
+def SumaFact():
+    SumaCadena2()
+
+def SumaCadena():
+    cad = str(2**1000)
+    print("2**1000= ", cad)
+    sum = 0
+    for x in cad:
+        sum += int(x)
+
+    print("La suma es: ", sum)
+
+def DosAla():
+    SumaCadena()
 """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -249,29 +290,30 @@ def dignalInver():
     return maxProd, maxX+1, maxY+1
 
 
-res = UpDown()
-res1 = leftRight()
-res2 = dignal()
-res3 = dignalInver()
+def Prod4Numbers():
+    res = UpDown()
+    res1 = leftRight()
+    res2 = dignal()
+    res3 = dignalInver()
 
-x = res[1]
-y = res[2]
-max = res[0]
-if res1[0] >max:
-    max = res1[0]
-    x = res1[1]
-    y = res1[2]
-if res2[0] > max:
-    max = res2[0]
-    x = res2[1]
-    y = res2[2]
-if res3[0] > max:
-    max = res3[0]
-    x = res3[1]
-    y = res3[2]
+    x = res[1]
+    y = res[2]
+    max = res[0]
+    if res1[0] >max:
+        max = res1[0]
+        x = res1[1]
+        y = res1[2]
+    if res2[0] > max:
+        max = res2[0]
+        x = res2[1]
+        y = res2[2]
+    if res3[0] > max:
+        max = res3[0]
+        x = res3[1]
+        y = res3[2]
 
-print("Máximo producto\n", max)
-print("Posicion\n", x, y)
+    print("Máximo producto\n", max)
+    print("Posicion\n", x, y)
 
 
 """
