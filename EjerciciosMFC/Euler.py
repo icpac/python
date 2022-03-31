@@ -3,12 +3,93 @@ from ntpath import join
 import numpy as np
 import scipy.special
 
-# the two give the same results 
-#val = scipy.special.binom(2*19, 19)
-val = scipy.special.binom(2*4, 4)
-print(f"binom 10 - 5: {val}")
-val = math.factorial(2*19)/ (math.factorial(19) * math.factorial(19))
-print(f"binom 10 - 5: {val}")
+
+#function to calculate paths
+def paths(n):
+#apply the above stated rule for n iterations
+    j = 1
+    for i in range(1,n):
+        j = j * (n + i) / i
+    return j
+
+def main():
+  # input grid size
+  p = paths(2);
+
+#print paths
+  print('The number of paths are:')
+  print(p)
+
+def xmain():
+    main()
+
+def Lattce(ren, col):
+    if col == ren:
+        return 2*Lattce(ren, col-1)
+    if col == 1:
+        return 1
+    if col > 1:
+        if col+1 == ren:
+            return Lattce(ren, col-1)+Lattce(col, col)
+        else:
+            return Lattce(ren, col-1)+Lattce(ren-1, col)
+    else:
+        return 0 
+
+def TestLat(m = 0):
+    print (f"Lattice: \n {Lattce(m, m)}")
+    val = (math.factorial((m-1)*2))/ (math.factorial(m-1) * math.factorial(2*(m-1)-(m-1)))
+    print(f"Factorial = {val}")
+
+
+#TestLat(5)
+"""
+2 x 2 = 2!/1!(2-1)! = 2
+3x3 = (3+1)! /2!(3-1)! = 24/4 = 6
+4x4 = (4+2)!/3!(6-3)! = 6!/3!3! = 120/6 = 20
+5x5 = (2(4-1))! / (4-1)! (2(4-1)-(4-1))!
+       
+4, 4 = 2(4, 3)
+2(4x2+3x3) = 2((4x1+3x2)+3x3)
+3x2 = 3x1+2x2 = 1+2 = 3
+= 2((1+3)+6) = 20
+
+3x3 = 2(3x2) = 2(3x1+2x2) = 2(1+2)= 2*3 = 6
+ 
+2(4,4) = 
+(4, 4) = 2(4,3 + 2(3,3))
+4, 3 = 4,2
+"""
+
+def pathsRec(ren,col,sump):
+    if ren < col:
+        for k in range(2, col):
+            for i in range(k, col+2):
+                sump += 1    
+    return sump
+
+def paths(cual = 1, lstPath = [2]):
+    suma = 2*lstPath[-1]
+    sump = 1
+    for i in range(2, cual):
+        sump = pathsRec(i, cual, sump)
+    lstPath.append(suma+2*sump)
+
+
+lstPath = [2]
+for i in range(2, 6):
+    paths(i, lstPath)
+
+print(lstPath)
+
+
+def nose():
+    # the two give the same results 
+    #val = scipy.special.binom(2*19, 19)
+    val = scipy.special.binom(2*4, 4)
+    print(f"binom 10 - 5: {val}")
+    val = math.factorial(2*19)/ (math.factorial(19) * math.factorial(19))
+    print(f"binom 10 - 5: {val}")
 
 
 """
@@ -408,61 +489,6 @@ lstnumros = [
  """
 
 
-#function to calculate paths
-def paths(n):
-#apply the above stated rule for n iterations
-    j = 1
-    for i in range(1,n):
-        j = j * (n + i) / i
-    return j
-
-def main():
-  # input grid size
-  p = paths(2);
-
-#print paths
-  print('The number of paths are:')
-  print(p)
-
-def xmain():
-    main()
-
-def Lattce(ren, col):
-    if col == ren:
-        return 2*Lattce(ren, col-1)
-    if col == 1:
-        return 1
-    if col > 1:
-        if col+1 == ren:
-            return Lattce(ren, col-1)+Lattce(col, col)
-        else:
-            return Lattce(ren, col-1)+Lattce(ren-1, col)
-    else:
-        return 0 
-
-def TestLat():
-    m = 20
-    #print (f"Lattice: \n {Lattce(m, m)}")
-
-    val = (math.factorial((m-1)*2))/ (math.factorial(m-1) * math.factorial(2*(m-1)-(m-1)))
-    print(f"Factorial = {val}")
-"""
-2 x 2 = 2!/1!(2-1)! = 2
-3x3 = (3+1)! /2!(3-1)! = 24/4 = 6
-4x4 = (4+2)!/3!(6-3)! = 6!/3!3! = 120/6 = 20
-5x5 = (2(4-1))! / (4-1)! (2(4-1)-(4-1))!
-       
-4, 4 = 2(4, 3)
-2(4x2+3x3) = 2((4x1+3x2)+3x3)
-3x2 = 3x1+2x2 = 1+2 = 3
-= 2((1+3)+6) = 20
-
-3x3 = 2(3x2) = 2(3x1+2x2) = 2(1+2)= 2*3 = 6
- 
-2(4,4) = 
-(4, 4) = 2(4,3 + 2(3,3))
-4, 3 = 4,2
-"""
 
 def Collatz(numro):
     sec = 1
