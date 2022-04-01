@@ -2,20 +2,49 @@ import numpy as np
 import inflect
 
 
-You are given the following information, but you may prefer to do some research for yourself.
+"""
+Let d(n) be defined as the sum of proper divisors of n 
+(numbers less than n which divide evenly into n).
+If d(a) = b and d(b) = a, where a ≠ b, then a and b are an 
+amicable pair and each of a and b are called amicable numbers.
 
-1 Jan 1900 was a Monday.
-Thirty days has September,
-April, June and November.
-All the rest have thirty-one,
-Saving February alone,
-Which has twenty-eight, rain or shine.
-And on leap years, twenty-nine.
-A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
-How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 
+11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
+The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.
+"""
+
+def Domngos():
+    domngos = 0
+    meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    nextDom = 1+6
+
+    diasMes = 0
+    domngosPrimro = 0
+    signteDomngo = 1+6
+    mesActal = 0
+    ano = 1900
+    while ano <= 2000:
+        signteDomngo = signteDomngo + 7
+        diasMes = meses[mesActal]
+        if (ano%4 == 0) and mesActal == 1:
+            diasMes += 1
+
+        if signteDomngo > diasMes:
+            signteDomngo = signteDomngo % diasMes
+            mesActal += 1
+        if signteDomngo == 1 and ano >= 1901:
+            domngosPrimro += 1
+        if mesActal >= 12:
+            mesActal = 0
+            ano += 1
+
+    print(f"Cuantod domingos Primero= {domngosPrimro}")
 
 
-listTringlo = [
+def MayorPath():
+    listTringlo = [
 [75],
 [95, 64],
 [17, 47, 82],
@@ -33,23 +62,23 @@ listTringlo = [
 [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23]
 ]
 
-longtud = len(listTringlo)
-for i in range(longtud):
-    if i > 0:
-        for j in range(i+1):
-            if j == 0:
-                listTringlo[i][j] = listTringlo[i][j] + listTringlo[i-1][j]
-            else:
-                if j == i:
-                    listTringlo[i][j] = listTringlo[i][j] + listTringlo[i-1][j-1]
+    longtud = len(listTringlo)
+    for i in range(longtud):
+        if i > 0:
+            for j in range(i+1):
+                if j == 0:
+                    listTringlo[i][j] = listTringlo[i][j] + listTringlo[i-1][j]
                 else:
-                    if listTringlo[i-1][j-1] > listTringlo[i-1][j]:
-                        listTringlo[i][j] = listTringlo[i][j]+listTringlo[i-1][j-1]
+                    if j == i:
+                        listTringlo[i][j] = listTringlo[i][j] + listTringlo[i-1][j-1]
                     else:
-                        listTringlo[i][j] = listTringlo[i][j]+listTringlo[i-1][j]
+                        if listTringlo[i-1][j-1] > listTringlo[i-1][j]:
+                            listTringlo[i][j] = listTringlo[i][j]+listTringlo[i-1][j-1]
+                        else:
+                            listTringlo[i][j] = listTringlo[i][j]+listTringlo[i-1][j]
 
 
-print(max(listTringlo[longtud-1]))
+    print(max(listTringlo[longtud-1]))
 
 
 def NuberToPalabras():
