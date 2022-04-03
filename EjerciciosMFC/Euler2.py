@@ -1,19 +1,68 @@
 import numpy as np
 import inflect
+from sympy import divisors
 
 
-"""
-Let d(n) be defined as the sum of proper divisors of n 
-(numbers less than n which divide evenly into n).
-If d(a) = b and d(b) = a, where a ≠ b, then a and b are an 
-amicable pair and each of a and b are called amicable numbers.
 
-For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 
-11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
-The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+listaPrimos = [2]
+def d(n):
+    numro = n
+    divsres = [1]
+    lon = len(listaPrimos)
 
-Evaluate the sum of all the amicable numbers under 10000.
-"""
+    i = 0
+    while i < lon and listaPrimos[i] <= n//2:
+        if n % listaPrimos[i] == 0:
+            divsres.append(listaPrimos[i])
+        i+=1
+
+    if len(divsres) == 1:
+        listaPrimos.append(n)
+        return sum(divsres)
+    else:
+        todosDivsres = divsres.copy()
+        k = 2
+        for i in divsres[1:]:
+            prm = i
+            while prm**k < n:
+                if n%prm**k == 0:
+                    todosDivsres.append(prm**k)
+                k += 1
+            k = 2
+        
+        for j in divsres[1:]:
+            for k in todosDivsres[1:]:
+                if j*k <= n//2 and n%(j*k) == 0:
+                    if j*k in todosDivsres:
+                        pass
+                    else:
+                        todosDivsres.append(j*k)
+        return sum(todosDivsres)
+
+
+def SumaAmigbles(listaNumeros):
+    sumaAmigbles = 0
+    lon = len(listaNumeros)
+    for i in listaNumeros:
+        if i == 1184:
+            lon = len(listaNumeros)
+        if i > 0:
+            suma = d(i)
+            if suma > i:
+                suma2 = d(suma)
+
+                if i == suma2:
+                    sumaAmigbles = sumaAmigbles + i + suma
+                elif suma2 < i and suma-3 < lon: 
+                    listaNumeros[suma-3] = 0
+    
+    return sumaAmigbles
+
+                            #10000
+listaNumeros = list(range(3, 10000))
+res = SumaAmigbles(listaNumeros)
+
+print(f"El resultado es: {res}")
 
 def Domngos():
     domngos = 0
