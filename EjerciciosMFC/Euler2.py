@@ -2,7 +2,38 @@ import numpy as np
 import inflect
 from sympy import divisors
 
+"""
+A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
+A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
+As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.
+Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
+Un número perfecto es un número para el cual la suma de sus divisores propios es exactamente igual al número. Por ejemplo, la suma de los divisores propios de 28 sería 1 + 2 + 4 + 7 + 14 = 28, lo que significa que 28 es un número perfecto.
+Un número n se llama deficiente si la suma de sus divisores propios es menor que n y abundante si esta suma excede de n.
+Como 12 es el número abundante más pequeño, 1 + 2 + 3 + 4 + 6 = 16, el número más pequeño que se puede escribir como la suma de dos números abundantes es 24. Mediante análisis matemático, se puede demostrar que todos los números enteros mayores que 28123 se puede escribir como la suma de dos números abundantes. Sin embargo, este límite superior no puede reducirse más mediante el análisis, aunque se sabe que el mayor número que no puede expresarse como la suma de dos números abundantes es menor que este límite.
+Encuentra la suma de todos los números enteros positivos que no se pueden escribir como la suma de dos números abundantes.
+"""
+
+def listNames():
+    with open('EjerciciosMFC\p022_names.txt') as f:
+        lines = f.readlines()
+
+    Names = lines[0].split(",")
+    Names.sort()
+
+    sumaTotal = 0
+    i = 0
+    lon = len(Names)
+    while i < lon:
+        sumaName = 0
+        for c in Names[i]:
+            if c != '"':
+                sumaName = sumaName+ord(c)-64
+        sumaTotal = sumaTotal + (sumaName*(i+1))
+
+        i+=1
+
+    print(f"Suma Total: {sumaTotal}")
 
 listaPrimos = [2]
 def d(n):
@@ -58,11 +89,13 @@ def SumaAmigbles(listaNumeros):
     
     return sumaAmigbles
 
-                            #10000
-listaNumeros = list(range(3, 10000))
-res = SumaAmigbles(listaNumeros)
 
-print(f"El resultado es: {res}")
+def SumaAmigables():
+                            #10000
+    listaNumeros = list(range(3, 10000))
+    res = SumaAmigbles(listaNumeros)
+
+    print(f"El resultado es: {res}")
 
 def Domngos():
     domngos = 0
