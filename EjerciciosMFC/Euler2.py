@@ -1,6 +1,48 @@
 import numpy as np
 import inflect
 from sympy import divisors
+from fractions import Fraction
+
+def Decmal(n):
+    frac = "0."
+    pot = 10
+    while n > pot:
+        pot = pot*10
+        frac = frac+"0"
+
+    lstMod = [0]
+    m = pot
+    m1 = n
+    while m%n != 0:
+        frac = frac + str(m//n)
+        if m%n in lstMod:
+            break
+        else:
+            lstMod.append(m%n)
+            m = m%n*10
+
+
+    return frac
+
+def MaxDecm():
+    print(Decmal(14))
+
+    num = 0
+    tam = 0
+    for i in range(1, 1001):
+        lon = len(Decmal(i))
+        if lon > tam:
+            tam = lon
+            num = i
+
+    print("Tamano máximo:")
+    print(f"Tamaño: {tam}")
+    print(f"Número: {num}")
+    print(f"Decimal: {Decmal(num)}")
+
+
+#print(Fraction(0.09).limit_denominator())
+#print(1/11)
 
 """
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
@@ -81,14 +123,15 @@ def SumaNOAbndntes(listaNumros, listaAbndntes):
 
     return sum(listaNumros)
 
-# 28123
-listaAbndntes = []
+def SumaNOA():
+    # 28123
+    listaAbndntes = []
 
-listaNumros = list(range(1, 28123+1))
+    listaNumros = list(range(1, 28123+1))
 
-res = SumaNOAbndntes(listaNumros, listaAbndntes)
-print(listaNumros)
-print(f"El resultado es: {res}")
+    res = SumaNOAbndntes(listaNumros, listaAbndntes)
+    print(listaNumros)
+    print(f"El resultado es: {res}")
 
 
 def listNames():
