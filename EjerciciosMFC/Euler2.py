@@ -3,6 +3,95 @@ import inflect
 from sympy import divisors
 from fractions import Fraction
 
+
+def CuntosPrimosCudrtca(a, b, listaPrimos):
+    cuntos = 0
+    i = 0
+    while True:
+        #if a == 1 and b == 41:
+        #    print("Ohoh")
+        px = i**2 + a*i + b
+        if px not in listaPrimos:
+            break
+        else:
+            cuntos += 1
+
+        i += 1
+
+    if px > listaPrimos[-1]:
+        print(f"Px: {px}")
+    return cuntos
+
+def BuscaMaxCuadPrim(listaPrimos):
+    maxCuntos = 0
+    a = 1000
+    ax = 0
+    bx = 0
+    for i in range(-a+1, a):
+        for j in listaPrimos:
+            if j < 1000:
+                n = CuntosPrimosCudrtca(i, j, listaPrimos)
+                if n > maxCuntos:
+                    maxCuntos = n
+                    ax = i
+                    bx = j
+
+    return maxCuntos, ax, bx
+
+listaPrimos = [2]
+def PrimosMenor(listaPrimos=[2], limte=1000):
+    numro = 3
+    noEs = False
+    while numro < limte:
+        for i in listaPrimos:
+            if numro % i == 0:
+                noEs = True
+                break 
+            if i > numro//2:
+                break
+
+        if noEs == False and numro < limte:
+            listaPrimos.append(numro)
+
+        numro += 2
+        noEs = False
+    
+
+def CuadPrims():
+    PrimosMenor(listaPrimos, 15001)
+    res = BuscaMaxCuadPrim(listaPrimos)
+    print(f"Cuantos Primos {res[0]}")
+    print(f"Valor de a: {res[1]}")
+    print(f"Valor de b: {res[2]}")
+
+    #print(listaPrimos)
+
+
+
+
+
+
+def Dignal(n):
+    listDig = []
+    print("Hello") 
+    print(n)
+
+    k = 1
+    m = 1
+    listDig.append(m)
+    for i in range(1, (n+1)//2):
+        for j in range(4):
+            m = m+2*k
+            listDig.append(m)
+        k += 1
+
+    return listDig
+
+
+def SumDiag():
+    res = Dignal(1001)
+    print(sum(res))
+
 def Decmal(n):
     frac = "0."
     pot = 10
@@ -44,36 +133,8 @@ def MaxDecm():
 #print(Fraction(0.09).limit_denominator())
 #print(1/11)
 
-"""
-A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
-A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
-As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.
-Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
-Un número perfecto es un número para el cual la suma de sus 
-divisores propios es exactamente igual al número. 
-Por ejemplo, la suma de los divisores propios de 28 sería 
-1 + 2 + 4 + 7 + 14 = 28, lo que significa que 28 es un 
-número perfecto.
-Un número n se llama deficiente si la suma de sus 
-divisores propios es menor que n y 
-abundante si esta suma excede de n.
-Como 12 es el número abundante más pequeño, 
-1 + 2 + 3 + 4 + 6 = 16, 
-el número más pequeño que se puede escribir como 
-la suma de dos números abundantes es 24. 
-Mediante análisis matemático, se puede demostrar que 
-todos los números enteros mayores que 28123 se puede escribir 
-como la suma de dos números abundantes. 
-Sin embargo, este límite superior no puede reducirse más 
-mediante el análisis, aunque se sabe que el mayor número que 
-no puede expresarse como la suma de dos números abundantes 
-es menor que este límite.
-Encuentra la suma de todos los números enteros positivos 
-que no se pueden escribir como la suma de dos números abundantes.
-"""
-
-listaPrimos = [2]
+#listaPrimos = [2]
 def d(n):
     divsres = [1]
     lon = len(listaPrimos)

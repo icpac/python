@@ -861,6 +861,7 @@ def fibncci():
     print("Suma de Pares:")
     print(sumaPares)
 
+
 def sum35():
     sum = 0
     limte = 1000
