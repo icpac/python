@@ -1,7 +1,59 @@
+from tkinter.tix import Tree
 import numpy as np
 import inflect
 from sympy import divisors
 from fractions import Fraction
+import math
+
+
+def FactorialSum(n):
+    listFacNum = []
+    for i in range(n//2, n):
+        numstr = str(i)
+        sumfac = 0
+        for c in numstr:
+            cnum = int(c)
+            sumfac = sumfac + math.factorial(cnum)
+            if sumfac > i:
+                break
+        
+        if i == sumfac:
+            listFacNum.append(i)
+
+    return listFacNum
+
+
+res = FactorialSum(4194304*2*2*2*2)
+print(res)
+
+
+def PanMul():
+    multd = 1
+    multr = 1
+    lstPan = []
+
+    for multd in range (3, 999):
+        for multr in range(2, 9999):
+            res = multd * multr
+            multds = str(multd)
+            multrs = str(multr)
+            ress = str(res)
+            if len(multds) + len(multrs) + len(ress) == 9:
+                nvac = multds+multrs+ress
+                cumple = Tree
+                for c in "123456789":
+                    if c not in nvac:
+                        cumple = False
+                        break
+                if cumple:
+                    lstPan.append(multds+"*"+multrs+"="+ress)
+
+    
+    return lstPan
+
+def PanMulRes():
+    res = PanMul()
+    print(res)
 
 
 def DigitCancel():
