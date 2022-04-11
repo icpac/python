@@ -305,22 +305,15 @@ def SumaNOAbndntes(listaNumros, listaAbndntes):
 
     return sum(listaNumros)
 
-<<<<<<< HEAD
-def sumaNoAbundantes():
-=======
 def SumaNOA():
->>>>>>> 1efb298026bddaf0f736688b245a888e34f55d6c
     # 28123
     listaAbndntes = []
 
     listaNumros = list(range(1, 28123+1))
 
     res = SumaNOAbndntes(listaNumros, listaAbndntes)
-<<<<<<< HEAD
     print(listaNumros[:100])
-=======
     print(listaNumros)
->>>>>>> 1efb298026bddaf0f736688b245a888e34f55d6c
     print(f"El resultado es: {res}")
 
 
