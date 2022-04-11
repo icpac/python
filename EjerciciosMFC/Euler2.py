@@ -2,6 +2,100 @@ import numpy as np
 import inflect
 from sympy import divisors
 
+
+def DigitCancel():
+    num = 10
+    den = num+1
+
+    listVa = []
+    while num <= 98:
+        den = num +1
+        while den <= 99:
+            nums = str(num)
+            dens = str(den)
+
+            if (nums[0] == dens[0] or nums[0] == dens[1] 
+            or nums[1] == dens[0] or nums[1] == dens[1]):
+           
+                val1 = num / den
+                if nums[0] == dens[0]:
+                    if int(dens[1]) != 0:
+                        val2 = int(nums[1])/ int(dens[1])
+                    else:
+                        val2 = 0
+                elif nums[0] == dens[1]:
+                    if int(dens[0]) != 0:
+                        val2 = int(nums[1])/ int(dens[0])
+                    else:
+                        val2 = 0
+                elif nums[1] == dens[0]:
+                    if int(dens[1]) != 0:
+                        val2 = int(nums[0])/ int(dens[1])
+                    else:
+                        val2 = 0
+                else:
+                    if int(dens[0]) != 0:
+                        val2 = int(nums[0])/ int(dens[0])
+                    else:
+                        val2 = 0
+
+                if val1 == val2:
+                    listVa.append(str(num)+"/"+str(den))
+
+            den += 1
+        num+= 1
+
+    return listVa
+
+
+def RedFracc():
+    res = DigitCancel()
+    print(res)
+
+
+def QuintaPot(n, pot):
+    listPt = []
+    for i in range (n):
+        text = str(i)
+        val = 0
+        for c in text:
+            val = val + int(c)**pot
+
+        if (i == val):
+            listPt.append(i)
+
+    return listPt
+
+def CualesQuintaPor():
+    res = QuintaPot(4194304, 5)
+    print(res)
+
+
+def numrosFibncci(n):
+    nfibncci = 1
+    f1 = 1
+    f2 = 1
+    while nfibncci <= n:
+        if nfibncci == 1 or nfibncci == 2:
+            nfibncci += 1
+            yield 1
+        else:
+            nfibncci += 1
+            fn = f2+f1
+            f1 = f2
+            f2 = fn
+            yield fn
+
+def mas1000():
+    print("Esimo Fibonacci: ")
+    tntos = 4782
+    cual = 10**999
+    for i in numrosFibncci(tntos):
+        if i >= cual:
+            print(i)
+
+    
+
 """
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
 A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
@@ -81,14 +175,15 @@ def SumaNOAbndntes(listaNumros, listaAbndntes):
 
     return sum(listaNumros)
 
-# 28123
-listaAbndntes = []
+def sumaNoAbundantes():
+    # 28123
+    listaAbndntes = []
 
-listaNumros = list(range(1, 28123+1))
+    listaNumros = list(range(1, 28123+1))
 
-res = SumaNOAbndntes(listaNumros, listaAbndntes)
-print(listaNumros)
-print(f"El resultado es: {res}")
+    res = SumaNOAbndntes(listaNumros, listaAbndntes)
+    print(listaNumros[:100])
+    print(f"El resultado es: {res}")
 
 
 def listNames():
