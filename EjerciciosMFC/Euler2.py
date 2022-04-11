@@ -1,6 +1,7 @@
 import numpy as np
 import inflect
 from sympy import divisors
+from fractions import Fraction
 
 
 def DigitCancel():
@@ -124,8 +125,137 @@ es menor que este límite.
 Encuentra la suma de todos los números enteros positivos 
 que no se pueden escribir como la suma de dos números abundantes.
 """
+def CuntosPrimosCudrtca(a, b, listaPrimos):
+    cuntos = 0
+    i = 0
+    while True:
+        #if a == 1 and b == 41:
+        #    print("Ohoh")
+        px = i**2 + a*i + b
+        if px not in listaPrimos:
+            break
+        else:
+            cuntos += 1
+
+        i += 1
+
+    if px > listaPrimos[-1]:
+        print(f"Px: {px}")
+    return cuntos
+
+def BuscaMaxCuadPrim(listaPrimos):
+    maxCuntos = 0
+    a = 1000
+    ax = 0
+    bx = 0
+    for i in range(-a+1, a):
+        for j in listaPrimos:
+            if j < 1000:
+                n = CuntosPrimosCudrtca(i, j, listaPrimos)
+                if n > maxCuntos:
+                    maxCuntos = n
+                    ax = i
+                    bx = j
+
+    return maxCuntos, ax, bx
 
 listaPrimos = [2]
+def PrimosMenor(listaPrimos=[2], limte=1000):
+    numro = 3
+    noEs = False
+    while numro < limte:
+        for i in listaPrimos:
+            if numro % i == 0:
+                noEs = True
+                break 
+            if i > numro//2:
+                break
+
+        if noEs == False and numro < limte:
+            listaPrimos.append(numro)
+
+        numro += 2
+        noEs = False
+    
+
+def CuadPrims():
+    PrimosMenor(listaPrimos, 15001)
+    res = BuscaMaxCuadPrim(listaPrimos)
+    print(f"Cuantos Primos {res[0]}")
+    print(f"Valor de a: {res[1]}")
+    print(f"Valor de b: {res[2]}")
+
+    #print(listaPrimos)
+
+
+
+
+
+
+def Dignal(n):
+    listDig = []
+    print("Hello") 
+    print(n)
+
+    k = 1
+    m = 1
+    listDig.append(m)
+    for i in range(1, (n+1)//2):
+        for j in range(4):
+            m = m+2*k
+            listDig.append(m)
+        k += 1
+
+    return listDig
+
+
+def SumDiag():
+    res = Dignal(1001)
+    print(sum(res))
+
+def Decmal(n):
+    frac = "0."
+    pot = 10
+    while n > pot:
+        pot = pot*10
+        frac = frac+"0"
+
+    lstMod = [0]
+    m = pot
+    m1 = n
+    while m%n != 0:
+        frac = frac + str(m//n)
+        if m%n in lstMod:
+            break
+        else:
+            lstMod.append(m%n)
+            m = m%n*10
+
+
+    return frac
+
+def MaxDecm():
+    print(Decmal(14))
+
+    num = 0
+    tam = 0
+    for i in range(1, 1001):
+        lon = len(Decmal(i))
+        if lon > tam:
+            tam = lon
+            num = i
+
+    print("Tamano máximo:")
+    print(f"Tamaño: {tam}")
+    print(f"Número: {num}")
+    print(f"Decimal: {Decmal(num)}")
+
+
+#print(Fraction(0.09).limit_denominator())
+#print(1/11)
+
+
+#listaPrimos = [2]
 def d(n):
     divsres = [1]
     lon = len(listaPrimos)
@@ -175,14 +305,22 @@ def SumaNOAbndntes(listaNumros, listaAbndntes):
 
     return sum(listaNumros)
 
+<<<<<<< HEAD
 def sumaNoAbundantes():
+=======
+def SumaNOA():
+>>>>>>> 1efb298026bddaf0f736688b245a888e34f55d6c
     # 28123
     listaAbndntes = []
 
     listaNumros = list(range(1, 28123+1))
 
     res = SumaNOAbndntes(listaNumros, listaAbndntes)
+<<<<<<< HEAD
     print(listaNumros[:100])
+=======
+    print(listaNumros)
+>>>>>>> 1efb298026bddaf0f736688b245a888e34f55d6c
     print(f"El resultado es: {res}")
 
 
