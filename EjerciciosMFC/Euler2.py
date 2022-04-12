@@ -5,6 +5,58 @@ from sympy import divisors
 from fractions import Fraction
 import math
 
+"""
+12345678901234567890
+10111213141516171819
+20212223242526272829
+30313233343536373839
+40414243444546474849
+50515253545556575859
+60
+70
+80
+90919293949596979899
+100101102103104105106107108109
+110
+120
+130
+140
+150
+160
+170
+180
+190
+
+d1 = 1
+d10 = 1
+d100 = 5
+d1000 × d10000 × d100000 × d1000000
+"""
+def SolsPerm(n):
+    lstSol = []
+    for i in range(1, n):
+        for j in range(1, n):
+            if i+j < n:
+                if i**2+j**2 == (n-i-j)**2:
+                    lstSol.append(str(i)+", "+str(j)+", "+str(n-i-j))
+
+    return lstSol
+
+
+maxPer = 0
+maxSols = 0
+maxRes = []
+for i in range(4, 1000+1):
+    res = SolsPerm(i)
+    if len(res) > maxSols:
+        maxSols = len(res)
+        maxPer = i
+        maxRes = res
+
+print(maxSols) 
+print(maxPer)
+print(maxRes)
+
 
 
 listaPrimos = [2]
@@ -50,9 +102,10 @@ def TruncPrims(listaPrimos):
     return lstTru
 
 
-PrimosMenor(listaPrimos, limte=1000000)
-res = TruncPrims(listaPrimos)
-print(res)
+def TtPrim():
+    PrimosMenor(listaPrimos, limte=1000000)
+    res = TruncPrims(listaPrimos)
+    print(res)
 
 
 def isPalindrome(s):
