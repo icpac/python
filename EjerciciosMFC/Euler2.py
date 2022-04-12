@@ -6,6 +6,113 @@ from fractions import Fraction
 import math
 
 
+
+listaPrimos = [2]
+def PrimosMenor(listaPrimos=[2], limte=1000):
+    numro = 3
+    noEs = False
+    while numro < limte:
+        for i in listaPrimos:
+            if numro % i == 0:
+                noEs = True
+                break 
+            if i > numro//2:
+                break
+
+        if noEs == False and numro < limte:
+            listaPrimos.append(numro)
+
+        numro += 2
+        noEs = False
+
+
+def TruncPrims(listaPrimos):
+    lstTru = []
+    for i in listaPrimos:
+        istr = str(i)
+        rp = True
+        for j in range(1, len(istr)):
+            isub = istr[j:]
+            if int(isub) not in listaPrimos:
+                rp = False
+                break
+        if rp:
+            lp = True
+            for j in range(1, len(istr)):
+                isub = istr[:j]
+                if int(isub) not in listaPrimos:
+                    lp = False
+                    break
+
+        if rp and lp:
+            lstTru.append(i)
+
+    return lstTru
+
+
+PrimosMenor(listaPrimos, limte=1000000)
+res = TruncPrims(listaPrimos)
+print(res)
+
+
+def isPalindrome(s):
+    return s == s[::-1]
+
+def PalDecBin(n):
+    lstPalin = []
+    for i in range(1, n):
+        istr = str(i)
+        if isPalindrome(istr):
+            #ib = int(istr, 2)
+            ib = bin(i).replace("0b", "")
+            ibstr = str(ib)
+            if isPalindrome(ibstr):
+                lstPalin.append(i)
+
+    return lstPalin
+
+def PalDecBin():
+    res = PalDecBin(1000000)
+    print(sum(res))
+
+
+def rotate(input,d): 
+    # slice string in two parts for left and right 
+    Lfirst = input[0 : d] 
+    Lsecond = input[d :] 
+  
+    # now concatenate two parts together 
+    return Lsecond + Lfirst
+
+def PrimoCircular(listaPrimos):
+    listCir = []
+    for i in listaPrimos:
+        primstr = str(i) 
+        if (len(primstr) == 0):
+            listCir.append(primstr)
+        else:
+            circP = True
+            #if i == 101:
+            #    circP = False
+            auxprim = primstr
+            for i in range(1, len(primstr)):
+                auxprim = rotate(auxprim, 1)
+                if int(auxprim) not in listaPrimos:
+                    circP = False
+                    break
+            if circP:
+                listCir.append(primstr)
+    
+    return listCir
+
+
+
+def PCircular():
+    PrimosMenor(listaPrimos, 1000000)
+    res = PrimoCircular(listaPrimos)
+    print(res)
+    print(len(res))
+
 def FactorialSum(n):
     listFacNum = []
     for i in range(n//2, n):
@@ -22,9 +129,9 @@ def FactorialSum(n):
 
     return listFacNum
 
-
-res = FactorialSum(4194304*2*2*2*2)
-print(res)
+def ff():
+    res = FactorialSum(4194304*2*2*2*2)
+    print(res)
 
 
 def PanMul():
@@ -211,23 +318,6 @@ def BuscaMaxCuadPrim(listaPrimos):
 
     return maxCuntos, ax, bx
 
-listaPrimos = [2]
-def PrimosMenor(listaPrimos=[2], limte=1000):
-    numro = 3
-    noEs = False
-    while numro < limte:
-        for i in listaPrimos:
-            if numro % i == 0:
-                noEs = True
-                break 
-            if i > numro//2:
-                break
-
-        if noEs == False and numro < limte:
-            listaPrimos.append(numro)
-
-        numro += 2
-        noEs = False
     
 
 def CuadPrims():
