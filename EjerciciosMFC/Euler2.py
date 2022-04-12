@@ -30,8 +30,40 @@ import math
 d1 = 1
 d10 = 1
 d100 = 5
-d1000 × d10000 × d100000 × d1000000
+d1 000  
+d10 000 
+d100 000 
+d1 000 000
 """
+
+def PosNum(numini, numfin, pos):
+    strval = ""
+    num = 0
+    for i in range(numini, numfin+1):
+        strval = strval+str(i)
+        if pos <= len(strval):
+            v = strval[pos-1]
+            num = int(v)
+            break
+            
+    return num
+
+
+res = PosNum(1, 9, 1)
+print(res)
+res = PosNum(10, 99, 10-9)
+print(res)
+res = PosNum(10, 99, 100-9)
+print(res)
+res = PosNum(100, 999, 1000-189)
+print(res)
+res = PosNum(1000, 9999, 10000-2889)
+print(res)
+res = PosNum(10000, 99999, 100000-42889)
+print(res)
+res = PosNum(100000, 999999, 1000000-492889)
+print(res)
+
 def SolsPerm(n):
     lstSol = []
     for i in range(1, n):
@@ -42,20 +74,20 @@ def SolsPerm(n):
 
     return lstSol
 
+def Perims():
+    maxPer = 0
+    maxSols = 0
+    maxRes = []
+    for i in range(4, 1000+1):
+        res = SolsPerm(i)
+        if len(res) > maxSols:
+            maxSols = len(res)
+            maxPer = i
+            maxRes = res
 
-maxPer = 0
-maxSols = 0
-maxRes = []
-for i in range(4, 1000+1):
-    res = SolsPerm(i)
-    if len(res) > maxSols:
-        maxSols = len(res)
-        maxPer = i
-        maxRes = res
-
-print(maxSols) 
-print(maxPer)
-print(maxRes)
+    print(maxSols) 
+    print(maxPer)
+    print(maxRes)
 
 
 
