@@ -48,12 +48,12 @@ def PosNum(numini, numfin, pos):
             
     return num
 
-
+https://oeis.org/A007376/b007376.txt
 res = PosNum(1, 9, 1)
 print(res)
 res = PosNum(10, 99, 10-9)
 print(res)
-res = PosNum(10, 99, 100-9)
+res = PosNum(10, 99, 314-9)
 print(res)
 res = PosNum(100, 999, 1000-189)
 print(res)
