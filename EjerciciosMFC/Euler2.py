@@ -4,6 +4,94 @@ import inflect
 from sympy import divisors
 from fractions import Fraction
 import math
+import itertools
+
+
+def Permuta():
+    for p in itertools.permutations(range(1, num)):
+        print(p)
+
+def LastPrim(ini, fin):
+    for i in range(ini, fin, -1):
+        pass
+
+
+listaPrimos = [2]
+def PrimosMenor2(listaPrimos=[2], inferior=3, limte=1000):
+    numro = inferior
+    noEs = False
+    esquer = int(numro**(1/2))
+    while numro < limte:
+        for i in range(2, esquer+1):
+            if numro % i == 0:
+                noEs = True
+                break 
+
+        if noEs == False and numro < limte:
+            listaPrimos.append(numro)
+
+        numro += 2
+        noEs = False
+        esquer = int(numro**(1/2))
+
+
+def PrimosMenor(listaPrimos=[2], limte=1000):
+    numro = 3
+    noEs = False
+    esquer = numro**(1/2)
+    while numro < limte:
+        for i in listaPrimos:
+            if numro % i == 0:
+                noEs = True
+                break 
+            if i > esquer:
+                break
+
+        if noEs == False and numro < limte:
+            listaPrimos.append(numro)
+
+        numro += 2
+        noEs = False
+        esquer = numro**(1/2)
+
+def PrimFile():
+    nf = "EjerciciosMFC\ppam.txt"
+    with open(nf) as f:
+        lines = f.readlines()
+    for l in lines:
+        nmrs = l.split('\t')
+        for n in nmrs:
+            if len(n) > 1:
+                listaPrimos.append(int(n))
+
+
+
+def PanPrim(listaPrimos, minPrim):
+    lstPanP = []
+    for i in listaPrimos:
+        if i > minPrim:
+            istr = str(i)
+            panP = True
+            c = 1
+            while c <= len(istr):
+                cstr = str(c)
+                nocurr = istr.count(cstr)
+                if nocurr == 0 or nocurr > 1:
+                    panP = False
+                    break
+                c += 1 
+            
+            if panP:
+                lstPanP.append(i)
+
+    return lstPanP
+
+
+
+#PrimFile()
+PrimosMenor2(listaPrimos,  899999999, 1000000000)
+res = PanPrim(listaPrimos, 899999999)
+print(res)
 
 """
 12345678901234567890
@@ -48,21 +136,23 @@ def PosNum(numini, numfin, pos):
             
     return num
 
-https://oeis.org/A007376/b007376.txt
-res = PosNum(1, 9, 1)
-print(res)
-res = PosNum(10, 99, 10-9)
-print(res)
-res = PosNum(10, 99, 314-9)
-print(res)
-res = PosNum(100, 999, 1000-189)
-print(res)
-res = PosNum(1000, 9999, 10000-2889)
-print(res)
-res = PosNum(10000, 99999, 100000-42889)
-print(res)
-res = PosNum(100000, 999999, 1000000-492889)
-print(res)
+def ExePosNum():
+    """https://oeis.org/A007376/b007376.txt"""
+    #res = PosNum(1, 9, 5)
+    #print(res)
+    #res = PosNum(10, 99, 99-9)
+    #print(res)
+    res = PosNum(10, 99, 190-9)
+    print(res)
+    res = PosNum(100, 999, 1000-189)
+    print(res)
+    res = PosNum(1000, 9999, 10000-2889)
+    print(res)
+    res = PosNum(10000, 99999, 100000-42889)
+    print(res)
+    res = PosNum(100000, 999999, 1000000-492889)
+    print(res)
+
 
 def SolsPerm(n):
     lstSol = []
@@ -91,23 +181,6 @@ def Perims():
 
 
 
-listaPrimos = [2]
-def PrimosMenor(listaPrimos=[2], limte=1000):
-    numro = 3
-    noEs = False
-    while numro < limte:
-        for i in listaPrimos:
-            if numro % i == 0:
-                noEs = True
-                break 
-            if i > numro//2:
-                break
-
-        if noEs == False and numro < limte:
-            listaPrimos.append(numro)
-
-        numro += 2
-        noEs = False
 
 
 def TruncPrims(listaPrimos):
