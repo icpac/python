@@ -7,13 +7,94 @@ import math
 import itertools
 
 
-def Permuta():
-    for p in itertools.permutations(range(1, num)):
-        print(p)
+def edu_roots(a, b, c):  
+    dis = (b**2) - (4*a*c)
 
-def LastPrim(ini, fin):
-    for i in range(ini, fin, -1):
-        pass
+    if dis > 0:
+        root1 = (-b + math.sqrt(dis) / (2 * a))
+        root2 = (-b - math.sqrt(dis) / (2 * a))
+        print("Two distinct real roots are %.2f and %.2f" %(root1, root2))
+
+    elif(dis == 0):
+        root1 = root2 = -b / (2 * a)
+        print("Two equal and real roots are %.2f and %.2f" %(root1, root2))
+
+    elif(dis < 0):
+        root1 = root2 = -b / (2 * a)
+        imaginary = math.sqrt(-dis) / (2 * a)
+        print("Two distinct complex roots are %.2f+%.2f and %.2f-%.2f" 
+                         %(root1, imaginary, root2, imaginary))
+
+
+edu_roots(3, -1, -81510)
+
+
+def DivPermuta(num):
+    listPerm = []
+    for p in itertools.permutations(num):
+        conca = ""
+        for j in p:
+            conca += str(j)
+
+        #print(type(conca))
+        s2 = conca[1:4]
+        i2 = int(s2)
+        if i2%2 == 0:
+            s3 = conca[2:5]
+            i3 = int(s3)
+            if i3%3 == 0:
+                s4 = conca[3:6]
+                i4 = int(s4)
+                if i4%5 == 0:
+                    s5 = conca[4:7]
+                    i5 = int(s5)
+                    if i5%7 == 0:
+                        s6 = conca[5:8]
+                        i6 = int(s6)
+                        if i6%11 == 0:
+                            s7 = conca[6:9]
+                            i7 = int(s7)
+                            if i7%13 == 0:
+                                s8 = conca[7:10]
+                                i8 = int(s8)
+                                if i8%17 == 0:
+                                    listPerm.append(int(conca))
+    return listPerm
+
+
+def ExePerm():
+    res = DivPermuta("0123456789")
+    print(res)
+
+
+def Permuta(ini, num, last):
+    listPerm = []
+    for p in itertools.permutations(num):
+        conca = str(ini)
+        for j in p:
+            conca += str(j)
+        conca += str(last)
+        listPerm.append(int(conca))
+    
+    return listPerm
+
+def Esprim(listPerm, listaPrimos):
+    listEs = []
+    for i in listPerm:
+        noEs = False
+        for j in listaPrimos:
+            if i%j == 0:
+                noEs = True
+                break
+            elif j > i**(1/2):
+                break
+        
+        if noEs == False:
+            listEs.append(i)
+    
+   
+    return listEs
+
 
 
 listaPrimos = [2]
@@ -87,11 +168,23 @@ def PanPrim(listaPrimos, minPrim):
     return lstPanP
 
 
+def NoseDejoPanPrim():
+    PrimosMenor(listaPrimos, limte=110000)
+    #print(listaPrimos[-10:])
+                      #123456
+    res1 = Permuta(7, "65432", 1)
+    #res1 = Permuta(4, "32", 1)
+    #print(res1)
+    #print(res1[-10:])
+    #res1.append(923456803)
+    #print(res1[-2:])
+    res = Esprim(res1, listaPrimos)
+    print(res)
 
-#PrimFile()
-PrimosMenor2(listaPrimos,  899999999, 1000000000)
-res = PanPrim(listaPrimos, 899999999)
-print(res)
+    #PrimFile()
+    #PrimosMenor2(listaPrimos,  899999999, 1000000000)
+    #res = PanPrim(listaPrimos, 899999999)
+    #print(res)
 
 """
 12345678901234567890
