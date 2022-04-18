@@ -1,23 +1,14 @@
 from fractions import Fraction
+from operator import ne
 import inflect
 import itertools
 import math
 from ntpath import join
 import numpy as np
+from pyrsistent import b
 import scipy.special
 from sympy import divisors, isprime
 from tkinter.tix import Tree
-
-
-def PotPot(n):
-    sum = 0
-    for i in range(1, n):
-        #print(i, i**i)
-        sum += (i**i) % 100000000000
-    print(sum)
-
-if __name__ == "__main__":
-    PotPot(1000)
 
 
 def IsPrim(n):
@@ -25,6 +16,170 @@ def IsPrim(n):
         if n%i == 0 and n > 2:
             return False
     return True
+
+def ConseNoPrim(nc, lim):
+    maxdiv = 4
+    for i in range(nc, lim):
+        if not IsPrim(i) and not isprime(i+1) \
+            and not isprime(i+2) and not isprime(i+3):
+
+            mi = i
+            mi1 = i+1
+            mi2 = i+2
+            mi3 = i+3
+
+            lstDiv = [0,0,0,0]
+            lstDiv1 = [0,0,0,0]
+            lstDiv2 = [0,0,0,0]
+            lstDiv3 = [0,0,0,0]
+            lstPrm = [0,0,0,0]
+            lstPrm1 = [0,0,0,0]
+            lstPrm2 = [0,0,0,0]
+            lstPrm3 = [0,0,0,0]
+
+            ne1 = -1
+            ne2 = -1
+            ne3 = -1
+            ne4 = -1
+
+
+            prVe = True
+            while mi % 2 == 0:
+                mi = mi//2
+                if prVe:
+                    ne1 += 1
+                    prVe = False
+                lstDiv[ne1] = lstDiv[ne1] + 1
+                lstPrm[ne1] = 2
+
+            prVe = True
+            while mi1 % 2 == 0:
+                mi1 = mi1//2
+                if prVe:
+                    ne2 += 1
+                    prVe = False
+                lstDiv1[ne2] = lstDiv1[ne2] + 1
+                lstPrm1[ne2] = 2
+
+            prVe = True
+            while mi2 % 2 == 0:
+                mi2 = mi2//2
+                if prVe:
+                    ne3 += 1
+                    prVe = False
+                lstDiv2[ne3] = lstDiv2[ne3] + 1
+                lstPrm2[ne3] = 2
+
+            prVe = True
+            while mi3 % 2 == 0:
+                mi3 = mi3//2
+                if prVe:
+                    ne4 += 1
+                    prVe = False
+                lstDiv3[ne4] = lstDiv3[ne4] + 1
+                lstPrm3[ne4] = 2
+            
+            j = 3
+            rd = (i+3)**(1/2) + 2
+            while j < rd:
+                if isprime(j):
+                    
+                    prVe = True
+                    while mi % j == 0:
+                        mi = mi//j
+                        if prVe:
+                            ne1 += 1
+                            prVe = False
+                            if ne1 > maxdiv-1:
+                                break
+                        lstDiv[ne1] = lstDiv[ne1] + 1
+                        lstPrm[ne1] = j
+
+
+                    prVe = True
+                    while mi1 % j == 0:
+                        mi1 = mi1//j
+                        if prVe:
+                            ne2 += 1
+                            prVe = False
+                            if ne2 > maxdiv-1:
+                                break
+                        lstDiv1[ne2] = lstDiv1[ne2] + 1
+                        lstPrm1[ne2] = j
+
+
+                    prVe = True
+                    while mi2 % j == 0:
+                        mi2 = mi2//j
+                        if prVe:
+                            ne3 += 1
+                            prVe = False
+                            if ne3 > maxdiv-1:
+                                break
+                        lstDiv2[ne3] = lstDiv2[ne3] + 1
+                        lstPrm2[ne3] = j
+
+                    prVe = True
+                    while mi3 % j == 0:
+                        mi3 = mi3//j 
+                        if prVe:
+                            ne4 += 1
+                            prVe = False
+                            if ne4 > maxdiv-1:
+                                break
+                        lstDiv3[ne4] = lstDiv3[ne4] + 1
+                        lstPrm3[ne4] = j
+                    
+                    if ne1 >= maxdiv \
+                        or ne2 >= maxdiv \
+                        or ne3 >= maxdiv \
+                            or ne4 >= maxdiv:
+                        break
+                j += 2
+
+            if mi > 1 and ne1 < maxdiv-1:
+                lstDiv[ne1+1] = mi
+            if mi1 > 1 and ne2 < maxdiv-1:
+                lstDiv1[ne2+1] = mi1
+            if mi2 > 1 and ne3 < maxdiv-1:
+                lstDiv2[ne3+1] = mi2
+            if mi3 > 1 and ne4 < maxdiv-1:
+                lstDiv3[ne4+1] = mi3
+                 
+
+            if 0 in lstDiv or 0 in lstDiv1 or 0 in lstDiv2 or 0 in lstDiv3:
+                pass
+            else:
+                print("Este es el chido")
+                print(i)
+                print(lstDiv)
+                print(lstPrm)
+                print(lstDiv1)
+                print(lstPrm1)
+                print(lstDiv2)
+                print(lstPrm2)
+                print(lstDiv3)
+                print(lstPrm3)
+
+
+if __name__ == "__main__":
+    pass
+
+def ConseNoPrim():
+    ConseNoPrim(100000, 300000)
+    #ConseNoPrim(1, 188780)
+
+
+def PotPot(n):
+    sum = 0
+    for i in range(1, n):
+        sum += (i**i) % 100000000000
+    print(sum)
+
+def MainPot():
+    PotPot(1000)
+
+
 
 def ConsecutivePrime(m, lim, maxS):
     lstConse = []
