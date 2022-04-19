@@ -11,6 +11,23 @@ from sympy import divisors, isprime
 from tkinter.tix import Tree
 
 
+def WordsPen():
+    nwp = 0
+    nf = "EjerciciosMFC\p042_words.txt"
+    with open(nf) as f:
+        lines = f.readlines()
+    for l in lines:
+        nmrs = l.split(',')
+        for n in nmrs:
+            if len(n) > 1:
+                print(n)
+
+if __name__ == "__main__":
+    WordsPen()
+    print(ord("S")-ord("A")+1)
+    print(ord("K")-ord("A")+1)
+    print(ord("Y")-ord("A")+1)
+
 def IsPrim(n):
     for i in range(2, int(n**(1/2))+2):
         if n%i == 0 and n > 2:
@@ -162,8 +179,6 @@ def ConseNoPrim(nc, lim):
                 print(lstPrm3)
 
 
-if __name__ == "__main__":
-    pass
 
 def ConseNoPrim():
     ConseNoPrim(100000, 300000)
