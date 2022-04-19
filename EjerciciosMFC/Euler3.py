@@ -10,12 +10,92 @@ import scipy.special
 from sympy import divisors, isprime
 from tkinter.tix import Tree
 
+def edu_roots(a, b, c):  
+    dis = (b**2) - (4*a*c)
+
+    if dis > 0:
+        root1 = (-b + math.sqrt(dis)) / (2 * a)
+        root2 = (-b - math.sqrt(dis)) / (2 * a)
+        return root1, root2
+
+    elif(dis == 0):
+        root1 = root2 = -b / (2 * a)
+        return root1, root2
+
+    elif(dis < 0):
+        root1 = root2 = -b / (2 * a)
+        imaginary = math.sqrt(-dis) / (2 * a)
+        return root1, root2
+
+def EsPen(a, b, c):
+    res = edu_roots(a, b, -2*c)
+    esPen = False
+    if res[0] > 0  or res[1] > 0:
+        if res[0] > 0:
+            m = int(res[0])
+            if abs(m - res[0]) < 0.00000001:
+                esPen = True
+        if not esPen and res[1] > 0:
+            m = int(res[1])
+            if abs(m - res[1]) < 0.00000001:
+                esPen = True
+    return esPen, m
+
+def EsHex(a, b, c):
+    res = edu_roots(a, b, -c)
+    esHex = False
+    if res[0] > 0  or res[1] > 0:
+        if res[0] > 0:
+            m = int(res[0])
+            if abs(m - res[0]) < 0.00000001:
+                esHex = True
+        if not esHex and res[1] > 0:
+            m = int(res[1])
+            if abs(m - res[1]) < 0.00000001:
+                esHex = True
+    return esHex, m
+
+def TrianPenHex(ni, n):
+    for i in range(ni, n):
+        t = i*(i+1)/2
+        resPen = EsPen(3, -1, t)
+        resHex = EsHex(2, -1, t) 
+        if resPen[0] and resHex[0]:
+            print("Este es el chido")
+            print(i, t, resPen[1], resHex[1])
+
+
+if __name__ == "__main__":
+    TrianPenHex(1, 15500*2*2)
+
 
 def IsPrim(n):
     for i in range(2, int(n**(1/2))+2):
         if n%i == 0 and n > 2:
             return False
     return True
+
+
+def NoGolba(n):
+    for i in range(1, n, 2):
+        if not isprime(i):
+            siFue = False
+            for j in range(i):
+                if isprime(j):
+                    men = i-j
+                    for k in range(men):
+                        if 2*(k**2) == men:
+                            siFue = True
+                            break
+                if siFue:
+                    break
+            if not siFue:
+                print("Este es el chido \n", i)
+
+
+def NoG():
+    NoGolba(10000)
+
 
 def ConseNoPrim(nc, lim):
     maxdiv = 4
@@ -162,8 +242,6 @@ def ConseNoPrim(nc, lim):
                 print(lstPrm3)
 
 
-if __name__ == "__main__":
-    pass
 
 def ConseNoPrim():
     ConseNoPrim(100000, 300000)
@@ -267,23 +345,6 @@ def PrimPerm():
 
 
 
-
-def edu_roots(a, b, c):  
-    dis = (b**2) - (4*a*c)
-
-    if dis > 0:
-        root1 = (-b + math.sqrt(dis)) / (2 * a)
-        root2 = (-b - math.sqrt(dis)) / (2 * a)
-        return root1, root2
-
-    elif(dis == 0):
-        root1 = root2 = -b / (2 * a)
-        return root1, root2
-
-    elif(dis < 0):
-        root1 = root2 = -b / (2 * a)
-        imaginary = math.sqrt(-dis) / (2 * a)
-        return root1, root2
 
 
 def numrosPenta(n):
