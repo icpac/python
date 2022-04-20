@@ -10,6 +10,89 @@ import scipy.special
 from sympy import divisors, isprime
 from tkinter.tix import Tree
 
+def TalVezPanMul(cad):
+    icad = int(cad)
+    res = ""
+    i = 1
+    while len(res) < 9:
+        res += str(icad * i)
+        i += 1
+
+    if len(res) == 9:
+        chido = True
+        for i in range(1, 10):
+            if not str(i) in res:
+                chido = False
+        return chido
+    return False
+
+
+def PanMul():
+    cad = "987654321"
+    for i in range(1, 9):
+        sub = cad[:-i]
+        res = TalVezPanMul(sub)
+        if res:
+            print("Este es el Chido:")
+            print(sub)
+
+if __name__ == "__main__":
+    PanMul()
+
+def Champ(n):
+    num = ""
+    for i in range(1, 1000000):
+        num += str(i)
+        if len(num) >= n:
+            return num[n-1]
+    return 0
+
+
+def ChampN():
+    prod = 1
+    pos1 = Champ(1)
+    print(pos1)
+
+    prod = prod*int(pos1)
+    pos1 = Champ(10)
+    print(pos1)
+
+    prod = prod*int(pos1)
+    pos1 = Champ(100)
+    print(pos1)
+    prod = prod*int(pos1)
+
+    pos1 = Champ(1000)
+    print(pos1)
+    prod = prod*int(pos1)
+        
+    pos1 = Champ(10000)
+    print(pos1)
+    prod = prod*int(pos1)
+
+    pos1 = Champ(100000)
+    print(pos1)
+    prod = prod*int(pos1)
+
+    pos1 = Champ(1000000)
+    print(pos1)
+    prod = prod*int(pos1)
+    print(prod)
+
+def PanPrim():
+    maxp = 0
+    for pr in itertools.permutations(str("7654321")):
+        stpri = ""
+        for k in pr:
+            stpri += k
+        tlpr = stpri
+        if isprime(int(tlpr)):
+            if int(tlpr) > maxp:
+                maxp = int(tlpr)
+                print(tlpr)
+
+def PPanP():
+    PanPrim()
 
 def WordsPen():
     nwp = 0
@@ -22,7 +105,7 @@ def WordsPen():
             if len(n) > 1:
                 print(n)
 
-if __name__ == "__main__":
+def FWordsPen():
     WordsPen()
     print(ord("S")-ord("A")+1)
     print(ord("K")-ord("A")+1)
