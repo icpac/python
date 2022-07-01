@@ -8,7 +8,7 @@ from math import *
 """import all function from math"""
 
 """x axis has been chosen from –π to +π, value """
-x = np.arange(-np.pi, np.pi, 0.001) 
+x = np.arange(-np.pi, np.pi, 0.01) 
 
 """ 
 of 1 smallest square along x axis is 0.001 
@@ -16,6 +16,8 @@ defining square wave function 𝑦 =−1, 𝑓𝑜𝑟 − 𝜋 ≤ 𝑥 ≤ 0""
 y = square(x) 
 #y = signal.sawtooth(2 * np.pi * 5 * t)
 y = signal.sawtooth(2 * np.pi * 2 * x)
+y = 2*(-1**x)/x
+y = x
 """
 y= +1, 𝑓𝑜𝑟 0 ≤ 𝑥 ≤ 𝜋
 define fuction
@@ -27,6 +29,10 @@ fs = lambda x : square(x)*sin(i*x)
 
 fc = lambda x : signal.sawtooth(2 * np.pi * 2 * x)*cos(i*x)
 fs = lambda x : signal.sawtooth(2 * np.pi * 2 * x)*sin(i*x)
+
+fc = lambda x : x*cos(i*x)
+fs = lambda x : x*sin(i*x)
+
 """max value of I, not taken infinity, better result with high value"""
 n = 50 
 
@@ -53,6 +59,7 @@ for i in range(n):
 
 plt.plot(x, sum, 'g')
 plt.plot(x, y, 'r--')
-plt.title("Serie de Fourier para una onda cuadrada")
+# una onda cuadrada
+plt.title("Serie de Fourier para y = x")
 plt.show()
 
