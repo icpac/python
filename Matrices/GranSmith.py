@@ -76,7 +76,17 @@ def puntoDosDos(vectors):
     return punt
 
 vectors = np.array([[-1., 1.5], [2., 0.]])
-vectors = np.array([[2., 1, 1], [1., 0., 10.], [2., -3., 11.]])
+print(vectors)
+#vectors = np.array([[2., 1, 1], [1., 0., 10.], [2., -3., 11.]])
+
+
+nv = int(input("Cuantos vectores: "))
+vct = []
+for i in range(0,nv):  
+   vct.append([float(j) for j in input().split()]) 
+
+vectors = np.array(vct)
+print(vectors)
 
 ortonor = GramS(vectors)
 norms = norma(ortonor)
@@ -86,4 +96,5 @@ print(ortonor)
 print(norms)
 print(punts)
 
-dibujaVectores3d(ortonor)
+dibujaVectores(ortonor)
+#dibujaVectores3d(ortonor)

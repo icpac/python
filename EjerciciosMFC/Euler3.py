@@ -11,8 +11,51 @@ from sympy import divisors, isprime
 from tkinter.tix import Tree
 
 
+def edu_roots(a, b, c):  
+    dis = (b**2) - (4*a*c)
+
+    if dis > 0:
+        root1 = (-b + math.sqrt(dis)) / (2 * a)
+        root2 = (-b - math.sqrt(dis)) / (2 * a)
+        return root1, root2
+
+    elif(dis == 0):
+        root1 = root2 = -b / (2 * a)
+        return root1, root2
+
+    elif(dis < 0):
+        root1 = root2 = -b / (2 * a)
+        imaginary = math.sqrt(-dis) / (2 * a)
+        #print("Two distinct complex roots are %.2f+%.2f and %.2f-%.2f" 
+        #                 %(root1, imaginary, root2, imaginary))
+        return root1+imaginary, root2+imaginary
+
+
+def ValorPalabra(w):
+    valor = 0
+    for k in w:
+        if ord(k) >= ord("A") and ord(k) <= ord("Z"):
+            valor += ord(k)-ord("A")+1
+
+    return valor
+
+def EsPenta(n):
+    res = edu_roots(1, 1, -2*n)
+    if res[0] > 0 or res[1] > 0:
+        if res[0] > 0:
+            m = int(res[0]) 
+            if m*(m+1)/2 == n:
+                return True
+        if res[1] > 0:
+            m = int(res[1]) 
+            if m*(m+1)/2 == n:
+                return True
+
+    return False
+
+
 def WordsPen():
-    nwp = 0
+    numPenta = 0
     nf = "EjerciciosMFC\p042_words.txt"
     with open(nf) as f:
         lines = f.readlines()
@@ -20,13 +63,14 @@ def WordsPen():
         nmrs = l.split(',')
         for n in nmrs:
             if len(n) > 1:
-                print(n)
+                k = ValorPalabra(n)
+                if EsPenta(k):
+                   numPenta += 1
+    return numPenta
 
 if __name__ == "__main__":
-    WordsPen()
-    print(ord("S")-ord("A")+1)
-    print(ord("K")-ord("A")+1)
-    print(ord("Y")-ord("A")+1)
+    res = WordsPen()
+    print("Hay tantos", res)
 
 def IsPrim(n):
     for i in range(2, int(n**(1/2))+2):
