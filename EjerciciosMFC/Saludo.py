@@ -9,6 +9,16 @@ fases = ["Luna creciente", "Cuarto creciente",
 "Menguante convexa", "Cuarto menguante", 
 "Menguante cóncava", "Nueva"]
 
+
+def FraseDia():
+    from random import randrange
+
+    with open('EjerciciosMFC\Frases.txt', 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    pos = randrange(len(lines))
+    print(lines[pos])
+
 def moon_phase(year, month, day):
     d = day;
     if month == 2:
@@ -29,7 +39,7 @@ if __name__ == "__main__":
 
     tz_MX = pytz.timezone('America/Mexico_City')
     datetime_MX = datetime.now(tz_MX)
-    print("MX time: ", datetime_MX.strftime("%H:%M:%S"))
+    #print("MX time: ", datetime_MX.strftime("%H:%M:%S"))
 
     sld = ""
     if datetime_MX.hour < 12:
@@ -49,4 +59,5 @@ if __name__ == "__main__":
 
     mp = moon_phase(datetime_MX.year, datetime_MX.month-1, datetime_MX.day)
     print(f"La luna está en {fases[mp]}")
+    print(FraseDia())
 
