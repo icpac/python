@@ -1,6 +1,9 @@
 
 
 def numExaToDec(num):
+    print(int(num,16))
+    print(enumerate((num)))
+
     for i, c in enumerate(reversed(num)):
         print(i, c)
 
